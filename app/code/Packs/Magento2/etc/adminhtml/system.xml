@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="packs" translate="label" sortOrder="10000">
+            <label>Packs</label>
+        </tab>
+        <section id="packs" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>General</label>
+            <tab>packs</tab>
+            <resource>Packs_Magento2::packs</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Packs Login Settings</label>
+                <field id="mode" translate="label" type="radios"
+                       sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Mode</label>
+                    <source_model>Packs\Magento2\Model\Config\Backend\ModeType</source_model>
+                </field>
+                <field id="api_name" translate="label" type="text" sortOrder="20" showInDefault="1">
+                    <label>Api Name</label>
+                </field>
+                <field id="api_password" translate="label" type="password" sortOrder="20" showInDefault="1">
+                    <label>Api Password</label>
+                </field>
+            </group>
+        </section>
+        <section id="shipments" translate="label" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Shipments</label>
+            <tab>packs</tab>
+            <resource>Packs_Magento2::packs</resource>
+            <group id="sender" translate="label" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Sender</label>
+                <field id="sender_name" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Name</label>
+                </field>
+                <field id="sender_contact" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>Contact</label>
+                </field>
+                <field id="sender_street" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>Street</label>
+                </field>
+                <field id="sender_housenumber" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>Housenumber</label>
+                </field>
+                <field id="sender_housenumberExt" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>Housenumber Ext</label>
+                </field>
+                <field id="sender_postcode" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>Postcode</label>
+                    <comment>format: 1234AB (without spaces)</comment>
+                </field>
+                <field id="sender_city" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>City</label>
+                </field>
+                <field id="sender_country" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>Country</label>
+                    <comment>format: NL</comment>
+                </field>
+                <field id="sender_handler" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>Handler</label>
+                    <comment>Options: All, HPD, Packs, A7, Circuit, JBM, FRL, Merenpost, PietSpoed, EfficientLogistics, InControlLogistics</comment>
+                </field>
+                <field id="sender_network" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>Network</label>
+                    <comment>Options: All, InNight, NextDay, Evening, Sunday</comment>
+                </field>
+                <field id="sender_reference" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>Reference</label>
+                </field>
+                <field id="sender_mail" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>Mail</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

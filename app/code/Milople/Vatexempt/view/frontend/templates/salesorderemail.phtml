@@ -1,0 +1,110 @@
+<?php
+/**
+*
+* Do not edit or add to this file if you wish to upgrade the module to newer
+* versions in the future. If you wish to customize the module for your
+* needs please contact us to https://www.milople.com/contact-us.html
+*
+* @category    Ecommerce
+* @package     Milople_VATExempt
+* @copyright   Copyright (c) 2017 Milople Technologies Pvt. Ltd. All Rights Reserved.
+* @url         https://www.milople.com/magento-extensions/vat-exempt-m2.html
+*
+**/
+?>
+<?php 
+$_order = $block->getOrder(); 
+$_order = $block->getOrder(); 
+$vatHelper=$this->helper('Milople\Vatexempt\Helper\Data'); 
+$vatOrderData= $vatHelper->getVatOrderDetail($_order->getIncrementId());
+$count=count($vatOrderData);
+?>
+<?php if($count>=1): ?>
+<h1 style="font-weight:300;line-height:1.1;font-size:25px;margin-top:0;border-bottom:1px solid #cccccc;margin-bottom:9px;padding-bottom:9px">VAT Exempt Information</h1>
+<table style="width:100%">
+	<thead class="email-items">
+		<thead>
+            <tr>
+                <th class="item-info" style="font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;text-align: left;vertical-align: bottom;padding: 9px;padding-left: 0px;">
+                    <?= $block->escapeHtml(__('Product')) ?>
+                </th>
+                <th class="item-qty" style="font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;text-align: left;vertical-align: bottom;padding: 9px;padding-left: 0px;">
+                    <?= $block->escapeHtml(__('Claimer Name')) ?>
+                </th>
+                <th class="item-price" style="font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;text-align: left;vertical-align: bottom;padding: 9px;padding-left: 0px;">
+                    <?= $block->escapeHtml(__('Reason')) ?>
+                </th>
+            </tr>
+        </thead>
+	</thead>
+	<tbody>
+		<?php foreach($vatOrderData as $data): ?>
+		<tr>
+			<td class="col-product">
+				<div id="order_item_<?php echo $data->getDetailId(); ?>">
+					<div id="order_item_<?php echo $data->getDetailId(); ?>_title" class="product-title">
+						<?php echo $data->getProductName(); ?>
+					</div>
+					<div class="product-sku-block">
+						<span>SKU:</span> <?php echo $data->getProductName(); ?>
+					</div>
+				</div>
+			</td>
+			<td class="col-status"><?php echo $data->getApplicantName(); ?></td>
+			<td class="col-price-original">
+				<span class="price"><?php echo  $vatHelper->getConditionName($data->getConditionId()); ?></span>
+            </td>
+        </tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+<?php endif; ?>
+<?php if ($_order) : ?>
+    <?php $_items = $_order->getAllItems(); ?>
+    <table class="email-items">
+        <thead>
+            <tr>
+                <th class="item-info">
+                    <?= $block->escapeHtml(__('Items')) ?>
+                </th>
+                <th class="item-qty">
+                    <?= $block->escapeHtml(__('Qty')) ?>
+                </th>
+                <th class="item-price">
+                    <?= $block->escapeHtml(__('Price')) ?>
+                </th>
+            </tr>
+        </thead>
+        <?php foreach ($_items as $_item) : ?>
+            <?php if (!$_item->getParentItem()) : ?>
+                <tbody>
+                    <?= $block->getItemHtml($_item) ?>
+                </tbody>
+            <?php endif; ?>
+        <?php endforeach; ?>
+        <tfoot class="order-totals">
+            <?= $block->getChildHtml('order_totals') ?>
+        </tfoot>
+    </table>
+    <?php if ($this->helper(\Magento\GiftMessage\Helper\Message::class)
+            ->isMessagesAllowed('order', $_order, $_order->getStore())
+        && $_order->getGiftMessageId()
+    ) : ?>
+        <?php $_giftMessage = $this->helper(\Magento\GiftMessage\Helper\Message::class)
+            ->getGiftMessage($_order->getGiftMessageId()); ?>
+        <?php if ($_giftMessage) : ?>
+            <br />
+            <table class="message-gift">
+                <tr>
+                    <td>
+                        <h3><?= $block->escapeHtml(__('Gift Message for this Order')) ?></h3>
+                        <strong><?= $block->escapeHtml(__('From:')) ?></strong> <?= $block->escapeHtml($_giftMessage->getSender()) ?>
+                        <br /><strong><?= $block->escapeHtml(__('To:')) ?></strong> <?= $block->escapeHtml($_giftMessage->getRecipient()) ?>
+                        <br /><strong><?= $block->escapeHtml(__('Message:')) ?></strong>
+                        <br /><?= $block->escapeHtml($_giftMessage->getMessage()) ?>
+                    </td>
+                </tr>
+            </table>
+        <?php endif; ?>
+    <?php endif; ?>
+<?php endif; ?>

@@ -1,0 +1,193 @@
+<?php
+/** @var \Packs\Magento2\Block\Adminhtml\Shipments\Grid */
+?>
+
+<style>
+    .copy{float:right; width:20px; height: 20px; background-color:#2e83ca; font-size:20px; font-weight:bold; color:#fff; border-radius:10px; text-align:center; cursor: pointer;}
+    .data-grid-cell-content{max-width:80%;width:80%!important;}
+</style>
+<?php $packageTypes = $block->getProductInfo() ?>
+<?php foreach($packageTypes as $typeName => $options):?>
+<input type="hidden" name="<?php echo $typeName ?>" value="<?php echo implode(',',$options) ?>"/>
+<?php endforeach; ?>
+
+<div class="admin__data-grid-wrap">
+    <form name="packs_shipment" method="post" action="<?php echo $block->getUrl('packs/shipment/save'); ?>">
+        <input type="hidden" name="order_ids" value="<?php echo implode (",", $block->getOrderIds()); ?>">
+        <table class="data-grid data-grid-draggable" data-role="grid">
+            <tr>
+                <th class="data-grid-th _sortable _draggable">Ordernummer</span></th>
+                <th class="data-grid-th _sortable _draggable">Colli</th>
+                <th class="data-grid-th _sortable _draggable">Zegel</th>
+                <th class="data-grid-th _sortable _draggable">Laad datum</th>
+                <th class="data-grid-th _sortable _draggable">Bezorg datum</th>
+                <th class="data-grid-th _sortable _draggable">Referentie</th>
+                <th class="data-grid-th _sortable _draggable">Totaal gewicht</th>
+                <th class="data-grid-th _sortable _draggable">Toeslag</th>
+            </tr>
+            <?php $i=0; ?>
+            <?php foreach ($block->getOrderIncrementIds() as $incrementId): ?>
+                    <?php echo $block->getBlockHtml('formkey') ?>
+                <tr>
+                    <td>
+                        <div class="data-grid-cell-content"><?php echo $incrementId ?></div>
+                    </td>
+                    <td width="10%">
+                        <input class="data-grid-cell-content" data-name="collie" id="<?php echo $incrementId; ?>-collie" name="<?php echo $incrementId; ?>-collie" type="text" value="1">
+                        <?php if($i==0): ?><div class="copy">&#8681;</div><?php endif; ?>
+                    </td>
+                    <td>
+                        <select class="data-grid-cell-content" data-name="seal" name="<?php echo $incrementId; ?>-seal">
+                            <?php foreach($packageTypes as $typeName => $options):?>
+                                <option <?php if(strtolower($typeName) == "package"): ?>selected="selected" <?php endif; ?>value="<?php echo $typeName ?>"><?php echo $typeName ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <?php if($i==0): ?><div class="copy">&#8681;</div><?php endif; ?>
+                    </td>
+                    <td>
+                        <input class="data-grid-cell-content admin__control-text _has-datepicker" type="date"  data-name="loaddate" id="<?php echo $incrementId; ?>-loaddate" name="<?php echo $incrementId; ?>-loaddate" value="<?php echo ($block->getDate()); ?>">
+                        <?php if($i==0): ?><div class="copy">&#8681;</div><?php endif; ?>
+                    </td>
+                    <td>
+                        <input class="data-grid-cell-content admin__control-text _has-datepicker" type="date"  data-name="deliverydate" id="<?php echo $incrementId; ?>-deliverydate" name="<?php echo $incrementId; ?>-deliverydate" value="<?php echo ($block->getTomorrowDate()); ?>">
+                        <?php if($i==0): ?><div class="copy">&#8681;</div><?php endif; ?>
+                    </td>
+
+                    <td>
+                        <input class="data-grid-cell-content" type="text"  name="<?php echo $incrementId; ?>-reference" value="webshop-<?php echo $incrementId ?>">
+                        <?php if($i==0): ?><div class="copy">&#8681;</div><?php endif; ?>
+                    </td>
+                    <td width="10%">
+                        <input class="data-grid-cell-content" type="text"  name="<?php echo $incrementId; ?>-weight" value="">KG
+                    </td>
+                    <td>
+                        <select class="data-grid-cell-content" data-name="allowance" name="<?php echo $incrementId; ?>-allowance">
+                            <?php foreach($packageTypes as $typeName => $options):?>
+                                <?php if(strtolower($typeName) == "package"): ?>
+                                    <?php foreach($options as $option): ?>
+                                    <option value="<?php echo $option ?>"><?php echo $option ?></option>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </select>
+                        <?php if($i==0): ?><div class="copy">&#8681;</div><?php endif; ?>
+                    </td>
+                </tr>
+                <input type="hidden" name="confirm_status" value="1">
+                <input type="hidden" name="magento_order_id" value="<?php echo $incrementId ?>">
+                <?php $i++; ?>
+            <?php endforeach; ?>
+        </table>
+        <button class="action- scalable primary" type="submit">Export</button>
+    </form>
+</div>
+
+<script type="text/javascript">
+    require(['jquery', 'jquery/ui', 'mage/calendar'], function($){
+        jQuery(document).ready( function() {
+
+            jQuery(document).ready( function() {
+                $('._has-datepicker').calendar({
+                    dateFormat: "%Y-%m-%d",
+                });
+            });
+
+
+            jQuery('.copy').click(function(){
+                var element = jQuery(this).closest('td').find('input,select');
+                console.log(element);
+                var clickValue = element.val();
+                console.log(clickValue);
+
+                var dataName = element.attr('data-name');
+//        alert(clickvalue+':'+dataName);
+
+                if(element.is('select')){
+                    jQuery('select[data-name='+dataName+']').each(function() {
+                        jQuery(this).val(clickValue);
+                    });
+                }else{
+                    jQuery('input[data-name='+dataName+']').each(function() {
+                        jQuery(this).val(clickValue);
+                    });
+                }
+            });
+
+            jQuery('input[data-name="loaddate"]').change(function() {
+
+                var loadDate = jQuery(this).val();
+                var fieldName = jQuery(this).attr('name');
+                var res = fieldName.replace("-loaddate", "");
+                var deliveryDate = jQuery("input[name='"+res+"-deliverydate']").val();
+                if(new Date(loadDate) >= new Date(deliveryDate)){
+                    var myDate = new Date(loadDate);
+                    myDate.setDate(myDate.getDate() + 1);
+                    /* Als deliverydate is zondag */
+                    if(myDate.getDay() == 0){
+                        myDate.setDate(myDate.getDate() + 1);
+                    }
+                    var formattedDate = myDate.getFullYear() + '-' + (myDate.getMonth()+1) + '-' +  myDate.getDate();
+                    jQuery("input[name='"+res+"-deliverydate']").val(formattedDate);
+                }else{
+                    /*Gelijk of voor vandaag*/
+                    var today = new Date();
+                    var yesterday = new Date();
+                    yesterday.setDate(yesterday.getDate() - 1);
+                    if(new Date(loadDate) < yesterday){
+                        var formattedDate = today.getFullYear() + '-' + (today.getMonth()+1) + '-' +  today.getDate();
+                        jQuery("input[name='"+res+"-loaddate']").val(formattedDate);
+                        alert('Date cannot be set in the past');
+                    }
+                }
+            });
+
+            jQuery('input[data-name="deliverydate"]').change(function() {
+                var deliveryDate = jQuery(this).val();
+                var fieldName = jQuery(this).attr('name');
+                var res = fieldName.replace("-deliverydate", "");
+                var loadDate = jQuery("input[name='"+res+"-loaddate']").val();
+                if(new Date(deliveryDate) <= new Date(loadDate)){
+                    var myDate = new Date(loadDate);
+                    myDate.setDate(myDate.getDate() + 1);
+                    console.log(myDate.getDay());
+                    if(myDate.getDay() == 0){
+                        myDate.setDate(myDate.getDate() + 1);
+                    }
+                    var formattedDate = myDate.getFullYear() + '-' + (myDate.getMonth()+1) + '-' +  myDate.getDate();
+                    jQuery(this).val(formattedDate);
+                    alert('Date cannot be set before load date');
+                }
+                /* Als op zondag valt */
+                if(new Date(deliveryDate).getDay() == 0){
+                    var myDate = new Date(deliveryDate);
+                    myDate.setDate(myDate.getDate() + 1);
+                    var formattedDate = myDate.getFullYear() + '-' + (myDate.getMonth()+1) + '-' +  myDate.getDate();
+                    jQuery(this).val(formattedDate);
+                    alert('Sunday delivery not possible');
+
+                }
+            });
+
+            jQuery('select[data-name="seal"]').change(function() {
+                var sealValue = jQuery(this).val();
+                var fieldName = jQuery(this).attr('name');
+                var res = fieldName.replace("-seal", "");
+                var value = jQuery(this).val();
+                var optionValues = jQuery("input[name='"+value+"']").val();
+                optionValues = optionValues.split(',');
+                var i = 0;
+
+                jQuery("select[name='"+res+"-allowance']").find('option').remove();
+                jQuery.each(optionValues, function(key, value) {
+                    jQuery("select[name='"+res+"-allowance']")
+                        .append(jQuery("<option></option>")
+                            .attr("value",value)
+                            .text(value));
+                });
+            });
+        });
+    });
+</script>
+
+
+

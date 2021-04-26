@@ -1,0 +1,39 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Top menu for store
+ *
+ * @var $block \Magento\Theme\Block\Html\Topmenu
+ */
+?>
+
+<?php $columnsLimit = $block->getColumnsLimit() ?: 0; ?>
+<?php $_menu = $block->getHtml('level-top', 'submenu', $columnsLimit) ?>
+
+<nav class="navigation" data-action="navigation">
+    <ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+        <?= /* @escapeNotVerified */ $_menu ?>
+        <?= /* @escapeNotVerified */ $block->getChildHtml() ?>
+       <li class="level0 nav-8 last level-top ui-menu-item" role="presentation"> <a href="/catalogsearch/advanced/" class="level-top ui-corner-all yellow" role="presentation">
+        <span class="ui-menu-icon ui-icon ui-icon-carat-1-e"></span><span>ZOEK OP MERK</span></a>
+        <ul class="level0 submenu ui-menu ui-widget ui-widget-content ui-corner-all" role="menu" aria-expanded="false" style="display: none;" aria-hidden="true">
+        <li class="level1 nav-8-1 first ui-menu-item" role="presentation"><a href="/jotun" id="ui-id-19" class="ui-corner-all" tabindex="-1" role="menuitem"><span>Jotun</span></a></li>
+        <li class="level1 nav-8-2 ui-menu-item" role="presentation"><a href="/sikkens" id="ui-id-20" class="ui-corner-all" tabindex="-1" role="menuitem"><span>Sikkens</span></a></li>
+        <li class="level1 nav-8-3 ui-menu-item" role="presentation"><a href="/sigma" id="ui-id-21" class="ui-corner-all" tabindex="-1" role="menuitem"><span>Sigma</span></a></li>
+        <li class="level1 nav-8-4 ui-menu-item" role="presentation"><a href="/ankerstuy" id="ui-id-22" class="ui-corner-all" tabindex="-1" role="menuitem"><span>Anker.Stuy</span></a></li>
+        <li class="level1 nav-8-5 last ui-menu-item" role="presentation"><a href="/niveau" id="ui-id-23" class="ui-corner-all" tabindex="-1" role="menuitem"><span>Niveau</span></a></li>
+        <li class="level1 nav-8-6 last ui-menu-item" role="presentation"><a href="/osmo" id="ui-id-24" class="ui-corner-all" tabindex="-1" role="menuitem"><span>Osmo</span></a></li>
+        <li class="level1 nav-8-7 last ui-menu-item" role="presentation"><a href="/restol" id="ui-id-25" class="ui-corner-all" tabindex="-1" role="menuitem"><span>Restol</span></a></li>
+       </ul>
+
+       </li>
+    </ul>
+</nav>

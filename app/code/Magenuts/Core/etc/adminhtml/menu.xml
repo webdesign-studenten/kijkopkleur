@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magenuts_Core::menu"
+             title="Magenuts"
+             module="Magenuts_Core"
+             translate="title"
+             sortOrder="10"
+             resource="Magenuts_Core::menu"/>
+		<add id="Magenuts_Core::nutsadmin" 
+			 title="Marketplace" module="Magenuts_Core" sortOrder="15"
+             parent="Magenuts_Core::menu" dependsOnModule="Magenuts_Core" 
+			 resource="Magenuts_Core::nutsadmin"/>	 
+        <add id="Magenuts_Core::marketplace"
+             title="Magenuts Marketplace"
+             module="Magenuts_Core"
+             translate="title"
+             sortOrder="16"
+             action="magenuts/marketplace"
+             parent="Magenuts_Core::nutsadmin"
+             resource="Magenuts_Core::marketplace"/>
+    </menu>
+</config>

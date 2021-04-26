@@ -1,0 +1,3 @@
+.admin_menu .level-0.item-packs > a:before {
+    content:url("../images/icon-packs.png");
+}

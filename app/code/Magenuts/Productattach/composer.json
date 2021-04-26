@@ -1,0 +1,29 @@
+{
+    "name": "magenuts/module-productattachment",
+    "description": "Magento 2 Product Attachment Module by Magenuts IT Solutions Private Limited",
+    "require": {
+        "magento/module-store": ">100.0",
+        "magento/module-backend": ">100.0",
+        "magento/framework": ">100.0"
+    },
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "minimum-stability": "dev",
+    "license": [
+        "proprietary"
+    ],
+    "authors": [
+        {
+          "name": "Ijaz Ali",
+          "email": "support@magenuts.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Magenuts\\Productattach\\": ""
+        }
+    }
+}

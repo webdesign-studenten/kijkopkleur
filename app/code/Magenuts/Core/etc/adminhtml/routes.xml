@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Magenuts Team
+ * @copyright Copyright (c) 2019 Magenuts Pvt Ltd (https://www.magenuts.com)
+ * @package Magenuts_Core
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="magenuts" frontName="magenuts">
+            <module name="Magenuts_Core"/>
+        </route>
+    </router>
+</config>

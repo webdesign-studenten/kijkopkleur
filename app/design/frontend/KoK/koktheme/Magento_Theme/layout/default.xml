@@ -1,0 +1,42 @@
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+<body>
+
+
+    <referenceBlock name="logo">
+        <arguments>
+            <argument name="logo_file" xsi:type="string">images/logo_KoK.svg</argument>
+            <argument name="logo_img_width" xsi:type="number">300</argument>
+
+        </arguments>
+    </referenceBlock>
+
+    <!--<referenceContainer name="catalog.topnav">-->
+        <!--<block class="Magento\Framework\View\Element\Html\Link\Current" name="your.link">-->
+            <!--<arguments>-->
+                <!--<argument name="label" xsi:type="string">contacttest</argument>-->
+                <!--<argument name="path" xsi:type="string">Link-url</argument>-->
+            <!--</arguments>-->
+        <!--</block>-->
+    <!--</referenceContainer>-->
+
+
+    <referenceBlock name="copyright" remove="true" />
+    <referenceBlock name="page.main.title" remove="true"/>
+    <referenceBlock name="reviews.tab" remove="true" />
+    <referenceBlock name="product.review.form" remove="true" />
+    <referenceBlock name="product.info.review" remove="true" />
+
+    <referenceBlock name="privacy-policy-link" remove="true"/>
+    <referenceBlock name="search-term-popular-link" remove="true"/>
+    <referenceBlock name="sales-guest-form-link" remove="true"/>
+    <referenceBlock name="contact-us-link" remove="true"/>
+    <referenceBlock name="catalog-search-advanced-link" remove="true"/>
+    <referenceBlock name="form.subscribe" remove="true"/>
+    <referenceBlock name="footer_links" remove="true" />
+
+
+</body>
+
+</page>
+

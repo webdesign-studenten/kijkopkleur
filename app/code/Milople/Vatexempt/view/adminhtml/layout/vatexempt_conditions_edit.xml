@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+*
+* Do not edit or add to this file if you wish to upgrade the module to newer
+* versions in the future. If you wish to customize the module for your
+* needs please contact us to https://www.milople.com/contact-us.html
+*
+* @category    Ecommerce
+* @package     Milople_VATExempt
+* @copyright   Copyright (c) 2017 Milople Technologies Pvt. Ltd. All Rights Reserved.
+* @url         https://www.milople.com/magento-extensions/vat-exempt-m2.html
+*
+**/ 
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="jquery/fileUploader/css/jquery.fileupload-ui.css"/>
+    </head>
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Milople\Vatexempt\Block\Adminhtml\Conditions\Edit" name="vatexempt_conditions_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Milople\Vatexempt\Block\Adminhtml\Conditions\Edit\Tabs" name="vatexempt_conditions_edit_tabs">
+                <block class="Milople\Vatexempt\Block\Adminhtml\Conditions\Edit\Tab\Main" name="vatexempt_conditions_edit_tab_main"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">vatexempt_conditions_edit_tab_main</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

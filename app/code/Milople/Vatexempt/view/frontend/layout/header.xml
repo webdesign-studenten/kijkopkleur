@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+	<body>
+		<referenceBlock name="header.links">
+			<move element="test-last" destination="header.links"/>
+			<block class="Milople\Vatexempt\Block\Header1" name="switch-vatexempt" after="my-account-link"/>
+		</referenceBlock>
+	</body>
+</page>

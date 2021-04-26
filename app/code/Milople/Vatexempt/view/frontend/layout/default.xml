@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+  	<head>
+		<link src="Milople_Vatexempt::js/custom.js"/>
+		<css src="Milople_Vatexempt::css/custom.css"/>
+    </head>
+	<body>
+		<referenceBlock name="header.links">
+			<!-- <referenceContainer name="content">
+				<block class="Milople\Vatexempt\Block\Header" name="helloworld_display" template="Milople_Vatexempt::header.phtml" />
+			</referenceContainer> -->
+			<block class="Milople\Vatexempt\Block\Header" name="add-new-header-link" before="my-account-link">
+				<arguments>
+					<argument name="label" xsi:type="string" translate="true">New Link</argument>
+					<argument name="path" xsi:type="string" translate="true">new-link</argument>
+				</arguments>
+			</block>
+		</referenceBlock>
+		<referenceContainer name="content">
+            <block class="Milople\Vatexempt\Block\VatexemptConfigData" name="milople.vatexempt.configdata" template="vatexempt.phtml"/>
+        </referenceContainer>
+	</body>
+</page>
+

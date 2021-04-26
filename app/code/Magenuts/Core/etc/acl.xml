@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magenuts_Core::menu" title="Magenuts Extensions" translate="title" sortOrder="79">
+                    <resource id="Magenuts_Core::marketplace" title="Magenuts Marketplace" translate="title" sortOrder="1"/>
+                </resource>
+
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Magenuts_Core::config"
+                                      title="Magenuts - Extensions Information"
+                                      sortOrder="110" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

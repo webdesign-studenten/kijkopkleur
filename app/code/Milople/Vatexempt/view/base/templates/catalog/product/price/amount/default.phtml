@@ -1,0 +1,119 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+
+<?php /** @var \Magento\Framework\Pricing\Render\Amount $block */ ?>
+
+<!-- for the add taxexempt -->
+<style>
+.old-price{
+	display: none;
+}
+</style>
+<?php  
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+	$checkoutsession = $objectManager->get('Magento\Checkout\Model\Session');
+	//echo $checkoutsession->getVatStatus();
+	
+	
+	$moduleManager = $objectManager->create( '\Magento\Framework\Module\Manager');
+    $isVatEanble = $moduleManager->isEnabled('Milople_Vatexempt');    
+    if ($isVatEanble) {
+             $product = $block->getSaleableItem();
+    $taxAttribute = $product->getCustomAttribute('tax_class_id');
+    $vatstatus = $product->getVatstatus();
+    
+
+
+    $scopeConfig = $objectManager->create( 'Magento\Framework\App\Config\ScopeConfigInterface' );
+    $countryCode = $scopeConfig->getValue(\Magento\Shipping\Model\Config::XML_PATH_ORIGIN_COUNTRY_ID);
+    $customerTaxClassId = $scopeConfig->getValue('tax/classes/default_customer_tax_class');
+     $priceTypeTax = $scopeConfig->getValue('tax/display/type');
+   /** @var \Magento\Catalog\Model\Product $product */
+    $enableConfigVat = $scopeConfig->getValue('vatexempt/licenseOptions/vatexempt_status');
+    $isIncPriceEnable = $scopeConfig->getValue('vatexempt/generalSettings/vatexempt_show_incl');
+	$isallproduct = $scopeConfig->getValue('vatexempt/generalSettings/vatexempt_apply_to');
+   /** @var \Magento\Catalog\Model\Product $product */
+    $productTaxClassId = $product->getData('tax_class_id');
+    //$taxCalculation=$objectManager->create( '\Magento\Tax\Model\Calculation');
+
+    $taxCalculation=$objectManager->create( '\Magento\Tax\Api\TaxCalculationInterface');
+    $storeManager= $objectManager->create('\Magento\Store\Model\StoreManagerInterface');
+    $customerSession = $objectManager->create('Magento\Customer\Model\Session');
+    $currencysymbol = $objectManager->get('Magento\Store\Model\StoreManagerInterface');
+    $currencyCode = $currencysymbol->getStore()->getCurrentCurrencyCode();
+    $currency =  $objectManager->create('Magento\Directory\Model\CurrencyFactory')->create()->load($currencyCode); 
+    $currencySymbol = $currency->getCurrencySymbol(); 
+    $customerId=$customerSession->getCustomer()->getId();
+    $storeId= $storeManager->getStore()->getId();
+    $rate = $taxCalculation->getCalculatedRate($productTaxClassId, $customerId, $storeId);
+	
+	//echo "Rate".$rate."\n";
+	//echo "\npriceTypeTax".$priceTypeTax."\n";
+	
+    $taxCalculation = $objectManager->create( 'Magento\Tax\Model\Calculation\Rate' )->load( $rate , 'tax_calculation_rate_id');
+    $priceExcludingTax = $product->getPrice();
+    $priceIncludingTax = $priceExcludingTax + ($priceExcludingTax * ($rate / 100));
+    // var_dump($product->getFinalPrice());
+	//echo $priceTypeTax;
+    if ($priceTypeTax == 1) {
+        $priceExcludingTax = $product->getPrice();
+        $priceIncludingTax = $priceExcludingTax + ($priceExcludingTax * ($rate / 100));
+        // var_dump($product->getFinalPrice());
+        if ($priceIncludingTax == 0) {
+            $priceExcludingTax = $product->getFinalPrice();
+            $priceIncludingTax = $priceExcludingTax + ($priceExcludingTax * ($rate / 100));
+        }
+    }elseif($priceTypeTax == 2){
+        $priceExcludingTax = $product->getFinalPrice()- ($product->getPrice() * ($rate / 100));
+        $priceIncludingTax = $product->getPrice();
+		//echo "PriceIncludingtax".$priceIncludingTax;
+		//echo "PriceExcludingtax".$priceExcludingTax;
+        if ($priceIncludingTax == 0) {
+            $priceExcludingTax = $product->getPriceInfo()->getPrice('final_price')->getAmount()->getBaseAmount();
+            $priceIncludingTax = $product->getFinalPrice();
+        }
+    }
+    // var_dump($priceIncludingTax);
+ }    
+?>
+
+        
+<!-- end taxexepmt -->
+<span class="price-container <?= /* @escapeNotVerified */ $block->getAdjustmentCssClasses() ?>"
+        <?= $block->getSchema() ? ' itemprop="offers" itemscope itemtype="http://schema.org/Offer"' : '' ?>>
+    <?php if ($block->getDisplayLabel()): ?>
+        <span class="price-label"><?= /* @escapeNotVerified */ $block->getDisplayLabel() ?></span>
+    <?php endif; ?>
+    <span <?php if ($block->getPriceId()): ?> id="<?= /* @escapeNotVerified */ $block->getPriceId() ?>"<?php endif;?>
+        <?= ($block->getPriceDisplayLabel()) ? 'data-label="' . $block->getPriceDisplayLabel() . $block->getPriceDisplayInclExclTaxes() . '"' : '' ?>
+        data-price-amount="<?= /* @escapeNotVerified */ $block->getDisplayValue() ?>"
+        data-price-type="<?= /* @escapeNotVerified */ $block->getPriceType() ?>"
+        class="price-wrapper <?= /* @escapeNotVerified */ $block->getPriceWrapperCss() ?>"
+    ><span>
+	<span class="price">
+		<?php echo $currencySymbol.number_format($block->getDisplayValue(), '2', '.', ',');?>
+	</span></span>
+    <?php if ($block->hasAdjustmentsHtml()): ?>
+        <?= $block->getAdjustmentsHtml() ?>
+    <?php endif; ?>
+    <?php if ($block->getSchema()): ?>
+        <meta itemprop="price" content="<?= /* @escapeNotVerified */ $block->getDisplayValue() ?>" />
+        <meta itemprop="priceCurrency" content="<?= /* @escapeNotVerified */ $block->getDisplayCurrencyCode() ?>" />
+    <?php endif; ?>
+</span>
+<br>
+		
+        <?php if ($isVatEanble) : ?>
+            <?php if ($enableConfigVat == 1): ?>                
+				<?php if ($checkoutsession->getVatStatus() == "1"): ?>
+					<span><span style="color: #333;">Excl.BTW: </span><span class="price"><?php echo $currencySymbol.number_format($priceExcludingTax, '2', '.', ','); ?></span></span><br>
+				<?php endif; ?>
+            <?php endif ?>
+        <?php endif ?>

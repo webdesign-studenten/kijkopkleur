@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<!--
+
+/**
+
+*
+
+* Do not edit or add to this file if you wish to upgrade the module to newer
+
+* versions in the future. If you wish to customize the module for your
+
+* needs please contact us to https://www.milople.com/contact-us.html
+
+*
+
+* @category    Ecommerce
+
+* @package     Milople_VATExempt
+
+* @copyright   Copyright (c) 2017 Milople Technologies Pvt. Ltd. All Rights Reserved.
+
+* @url         https://www.milople.com/magento-extensions/vat-exempt-m2.html
+
+*
+
+**/ 
+
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+
+    <menu>
+
+       <add id="Milople_Vatexempt::vatexempt" title="VAT Exempt" module="Milople_Vatexempt" sortOrder="10"  dependsOnModule="Milople_Vatexempt" resource="Milople_Vatexempt::menu" parent="Milople_All::all"/>
+	 
+       <add id="Milople_Vatexempt::conditions" title="Medical Conditions" module="Milople_Vatexempt" sortOrder="10" parent="Milople_Vatexempt::vatexempt" action="vatexempt/conditions" resource="Milople_Vatexempt::medicalcondition"/>
+
+       <add id="Milople_Vatexempt::configuration" title="Configuration" module="Milople_Vatexempt" sortOrder="10" parent="Milople_Vatexempt::vatexempt" action="adminhtml/system_config/edit/section/vatexempt" resource="Milople_Vatexempt::config"/>
+
+        <add id="Milople_Vatexempt::vatexemptreports" title="Vatexempt Reports" translate="title" module="Milople_Vatexempt" sortOrder="55" parent="Magento_Reports::report" resource="Milople_Vatexempt::vatexemptreports"/>
+		
+        <add id="Milople_Vatexempt::vatexemptreports_details" resource="Milople_Vatexempt::vatexemptreports" title="Vatexempt Details" action="vatexempt/reports/details" module="Milople_Vatexempt" sortOrder="10" parent="Milople_Vatexempt::vatexemptreports" dependsOnModule="Milople_Vatexempt"/>
+		
+    </menu>
+
+</config>

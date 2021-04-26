@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+
+<!--
+
+/**
+
+*
+
+* Do not edit or add to this file if you wish to upgrade the module to newer
+
+* versions in the future. If you wish to customize the module for your
+
+* needs please contact us to https://www.milople.com/contact-us.html
+
+*
+
+* @category    Ecommerce
+
+* @package     Milople_VATExempt
+
+* @copyright   Copyright (c) 2017 Milople Technologies Pvt. Ltd. All Rights Reserved.
+
+* @url         https://www.milople.com/magento-extensions/vat-exempt-m2.html
+
+*
+
+**/ 
+
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+
+    <system>
+
+    	<tab id="Milople" translate="label" sortOrder="100">
+
+            <label>Milople Extensions</label>
+
+        </tab>
+
+        <section id="vatexempt" translate="label" type="text" sortOrder="305" showInDefault="1" showInWebsite="1" showInStore="1">
+
+            <label>VAT Exempt</label>
+
+            <tab>Milople</tab>
+
+            <resource>Milople_Vatexempt::vatexempt</resource>
+
+            <group id="licenseOptions" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+
+                <label>License Options</label>
+
+                <field id="vatexempt_serialkey" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+
+                    <label>Serial Key</label>
+
+                   <backend_model>Milople\Vatexempt\Model\Config\Backend\Lookup</backend_model>
+
+                </field>
+
+                <field id="vatexempt_status" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+
+                    <label>Status</label>
+
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+
+                </field>
+
+            </group>
+
+            <group id="generalSettings" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+
+                <label>General Settings</label>
+
+                <field id="vatexempt_apply_to" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+
+                    <label>Apply VAT Exempt to</label>
+
+                    <source_model>Milople\Vatexempt\Model\Config\Source\Options</source_model>
+
+                </field>
+
+                <field id="vatexempt_show_incl" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+
+                    <label>Show Price Including Tax</label>
+
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>It will show price Including Tax on Category page and Product page. To know more please visite our Knowledgebase at 'https://www.milople.com/knowledgebase/m1-vat-exempt.html'.</comment>
+
+                </field>
+				<field id="vatexempt_upload_file" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+
+                    <label>Upload File</label>
+
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                  
+
+                </field>
+                <field id="vatexempt_show_link" translate="label" type="select" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+
+                    <label>Show Terms and Conditions Link</label>
+
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+
+                </field>
+
+                <field id="vatexempt_link_text" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+
+                    <label>Terms and Conditions Link Text</label>
+
+                </field>
+
+                <field id="vatexempt_termsandconditions" translate="label" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+
+                    <label>Terms and Conditions</label>
+
+                </field>
+
+            </group>
+
+        </section>
+
+    </system>
+
+</config>
+

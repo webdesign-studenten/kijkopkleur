@@ -1,0 +1,32 @@
+<?php
+/**
+ * MageVision Cart Product Comment Extension
+ *
+ * @category     MageVision
+ * @package      MageVision_CartProductComment
+ * @author       MageVision Team
+ * @copyright    Copyright (c) 2017 MageVision (http://www.magevision.com)
+ * @license      LICENSE_MV.txt or http://www.magevision.com/license-agreement/
+ */
+?>
+<?php
+$product = $block->getProduct();
+$cartProductCommentHelper = $this->helper('MageVision\CartProductComment\Helper\Data');
+?>
+<style>
+    .product-comment {
+        margin-top: 10px;
+    }
+</style>
+<?php if ($cartProductCommentHelper->isEnabled()): ?>
+    <div class="product-comment">
+    <label>
+        <span><?php echo __('Opmerking') ?></span>
+    </label>
+    <textarea id="product-<?php echo $block->escapeHtml($product->getId()) ?>-comment"
+              name="product_<?php echo $block->escapeHtml($product->getId()) ?>_comment"
+              rows="2"
+              cols="15"
+              maxlength="250"
+    placeholder="geef hier uw opmerking of speciale kleur op"></textarea></div>
+<?php endif; ?>

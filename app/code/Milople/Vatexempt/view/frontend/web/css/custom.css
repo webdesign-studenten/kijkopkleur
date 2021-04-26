@@ -1,0 +1,98 @@
+.button-switch {
+  font-size: 1.5em;
+  height: 50px;
+  margin-bottom: 10 / 16 * 1em;
+  position: relative;
+  width: 100px;
+
+  .lbl-off,
+  .lbl-on {
+    cursor: pointer;
+    display: block;
+    font-size: 0.9em;
+    font-weight: bold;
+    line-height: 1em;
+    position: absolute;
+    top: 8 / 16 * 1em;
+    transition: opacity 0.25s ease-out 0.10s;
+    text-transform: uppercase;
+  }
+
+  .lbl-off {
+    right: 7 / 16 * 1em;
+  }
+
+  .lbl-on {
+    color: #fefefe;
+    opacity: 0;
+    left: 7 / 16 * 1em;
+  }
+
+  .switch {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    // --
+    height: 0;
+    font-size: 1em;
+    left: 0;
+    line-height: 0;
+    outline: none;
+    position: absolute;
+    top: 0;
+    width: 0;
+
+    &:before,
+    &:after {
+      content: '';
+      font-size: 1em;
+      position: absolute;
+    }
+
+    &:before {
+      border-radius: 20 / 16 * 1em;
+      background: #bdc3c7;
+      height: 50px;
+      left: 4 / 16 * -1em;
+      top: 3 / 16 * -1em;
+      transition: background-color 0.25s ease-out 0.10s;
+      width: 100px;
+    }
+
+    &:after {
+      box-shadow: 0 .0625em .375em 0 #666;
+      border-radius: 50%;
+      background: #fefefe;
+      height: 24 / 16 * 1em;
+      transform: translate(0, 0);
+      transition: transform 0.25s ease-out 0.10s;
+      width: 24 / 16 * 1em;
+    }
+
+    &:checked {
+      &:after {
+        transform: translate(40 / 16 * 1em, 0);
+      }
+
+      & ~ .lbl-off {
+        opacity: 0;
+      }
+
+      & ~ .lbl-on {
+        opacity: 1;
+      }
+    }
+
+    &#switch-orange {
+      &:checked:before {
+        background: #e67e22;
+      }
+    }
+
+    &#switch-blue {
+      &:checked:before {
+        background: #3498db;
+      }
+    }
+  }
+}

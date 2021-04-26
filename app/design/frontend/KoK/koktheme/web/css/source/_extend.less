@@ -1,0 +1,174 @@
+@import "../ionicons.css";
+
+.media(@min, @max, @styles) {
+  @media (min-width: @min)
+  and (max-width: @max) {
+    @styles();
+  }
+}
+
+.mobile(@styles) {.media(100px, 767px, @styles)}
+.desktop(@styles) {.media(768px, 30000px, @styles)}
+
+.phone {
+  a {
+    color: red !important;
+  }
+}
+
+.nav-sections-item-content {
+  background-color: @color-green-kok;
+}
+
+.yellow {
+  color: @color-kok-yellow !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none !important;
+}
+.counter-number {
+  text-shadow: none !important;
+}
+
+/* homepage */
+.daarom-container {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.ad-container {
+  background-image: url("/pub/media/wysiwyg/homepage/ad-links.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  height: 400px;
+  width: 100%;
+}
+.kom-langs-container {
+  background-image: url("/pub/media/wysiwyg/homepage/komlangskaart.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  height: 400px;
+  width: 100%;
+  .kop-kom-langs {
+    background-color: rgba(242, 230, 218, 0.9);
+    margin-left: 0px;
+    padding: 5px;
+    color: @color-kok-darkgreen;
+    font-size: 22px;
+    font-weight: 900;
+    text-align: center;
+    padding: 10px 15px 20px 15px;
+  }
+}
+
+
+.voordelen {
+  background-color: @color-kok-yellow;
+  color: #ffffff;
+  padding: 10px;
+  .voordeel {
+    font-size: 22px;
+    text-align: center;
+    .icon {
+      font-size:2.1em;
+      display: block;
+    }
+    .mobile({
+      border-bottom: 1px solid @color-kok-darkgreen;
+    });
+  }
+}
+
+/*header */
+.page-header .panel.wrapper{
+  background-color: @color-kok-lightgreen;
+}
+
+/*topheader */
+@media only screen and (max-width: 767px) {
+  .page-header .panel.wrapper {
+    margin-top: 40px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .topheader {
+    position: absolute;
+    text-align: center;
+    min-height: 40px;
+    padding:10px;
+    min-width:100%;
+    background-color: @color-kok-lightgreen;
+    color: #f2e6d9;
+    top:0px;
+    left:0px;
+    a {
+      color: #f2e6d9;
+    }
+  }
+}
+@media only screen and (min-width: 767px) {
+  .topheader {
+    display: none;
+  }
+}
+
+/* category page header*/
+.cat-row {
+  background-color: @color-kok-beige;
+}
+
+/* aanpassingen omdat bootstrap sommige zaken sloopt */
+.checkout-container {
+  .modal-content {
+    border: none !important;
+  }
+  .modal-header {
+    border-bottom: none !important;
+  }
+}
+
+mark,
+.mark {
+  background-color: transparent !important;
+}
+
+/* cards op homepage */
+
+.card {
+  background-color: @color-kok-grey !important;
+  color: #fff;
+  border: none !important;
+  border-radius: 0px !important;
+  .card-footer {
+    padding: 1.75rem 1.25rem;
+    background-color: @color-kok-lightgreen;
+    border-top: none;
+    text-align: center;
+    a, a:focus, a:visited {
+      color: #fff;
+    }
+  }
+}
+//.fotorama-item {
+//  height: 500px;
+//}
+//.fotorama__stage__shaft {
+//  height: 500px;
+//}
+
+
+.links {
+  width: 100%;
+}
+
+
+.footer.content .block {
+  float: none !important;
+}
