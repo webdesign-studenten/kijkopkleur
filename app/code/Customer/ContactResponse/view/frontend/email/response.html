@@ -1,0 +1,23 @@
+<!--@subject {{trans "Contactformulier"}} @-->
+<!--@vars {
+"var data.comment":"Comment",
+"var data.email":"Sender Email",
+"var data.name":"Sender Name",
+"var data.telephone":"Sender Telephone"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table class="message-details">
+    <tr>
+        <td>Beste <strong>{{var data.name}}</strong></td>
+    </tr>
+    <tr>
+        <td>Bedankt voor uw bericht.</td>
+    </tr>
+	<tr>
+	<td>Wij hebben dit in goede orde ontvangen en nemen zo spoedig mogelijk contact met u op.</td>
+	</tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}
