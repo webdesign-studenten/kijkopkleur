@@ -3,6 +3,12 @@
 <body>
 
 
+    <block class="Magento\Cms\Block\Block" name="header_left"> 
+        <arguments> 
+            <argument name="block_id" xsi:type="string">header_left</argument> 
+        </arguments> 
+    </block> 
+
     <referenceBlock name="logo">
         <arguments>
             <argument name="logo_file" xsi:type="string">images/logo_KoK.svg</argument>
@@ -34,7 +40,7 @@
     <referenceBlock name="catalog-search-advanced-link" remove="true"/>
     <referenceBlock name="form.subscribe" remove="true"/>
     <referenceBlock name="footer_links" remove="true" />
-
+<move element="header_left" destination="header.panel" before="-"/>
 
 </body>
 
