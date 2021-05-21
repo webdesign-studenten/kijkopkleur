@@ -22,8 +22,8 @@ class Header extends \Magento\Framework\View\Element\Html\Link
      }
 
     $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-	$checkoutsession = $objectManager->get('Magento\Checkout\Model\Session');
-	$selected = '';
+	  $checkoutsession = $objectManager->get('Magento\Checkout\Model\Session');
+	  $selected = '';
     
     if($checkoutsession->getVatStatus() == "1"){
         $selected = 'Checked';
@@ -93,15 +93,107 @@ class Header extends \Magento\Framework\View\Element\Html\Link
         .slider.round:before {
           border-radius: 50%;
         }
+        @media only screen and (max-width: 767px){
+        .header-left-link li:nth-child(3) {padding-left: 0px !important;}
+        .dropdown-link{display:none}
+    .nav-sections .header.links{background: #ebdac6;}
+    .nav-sections .header.links .header-left .header-left-link li {
+    font-size: 0;
+    border-bottom: 1px solid #d1d1d1;
+    float: left;
+    width: 100%;
+}
+.nav-sections .header.links .header-left {
+    float: left;
+    width: 100%;
+    display: block;
+}
+.nav-sections .header.links li.customer-welcome {
+    float: left;
+    width: 100% !important;
+    border-bottom: 1px solid #d1d1d1;
+    margin-top: 0 !important;
+}
+.nav-sections .header.links li.customer-welcome .customer-menu li.authorization-link {
+    display: none;
+}
+.nav-sections .header.links li.greet.welcome {
+    float: left;
+    width: 100% !important;
+    padding-left: 8px !important;
+    border-bottom: 1px solid #d1d1d1;
+    padding-bottom: 10px;
+}
+.nav-sections .header.links li > a {
+    border-top: 0;
+}
+.nav-sections .header.links {
+    border-bottom: 0;
+}
+.nav-sections .header.links li.greet.welcome {
+    border-top: 0;
+}
+.nav-sections .header.links li a {
+    font-size: 14px;
+    padding: 7px 0px 7px 7px;
+    text-transform: uppercase;
+}
+.header.links li.authorization-link {
+    position: relative;
+    float: left;
+    width: 100% !important;
+    border-top: 1px solid #d1d1d1;
+    margin-top: 0 !important;
+}
+.nav-sections .header.links .header-left .header-left-link li:nth-child(3) {
+    border-bottom: 1px solid #d1d1d1;
+}
+.nav-sections .header.links li:nth-child(3) {
+    font-size: 14px;
+    padding: 0;
+    color: #858585;
+    font-weight: 700;
+}
+.nav-sections .header.links li {
+    margin: 0;
+    float: left;
+    width: 26%;
+}
+.page-header .panel.wrapper {
+    margin-top: 0;
+}
+.nav-sections .header.links .btw-incl {
+    display: inline-flex;
+}
+.nav-sections .header.links {
+    background: transparent;
+    float: left;
+    width: 100%;
+}
+.nav-sections .header.links .btw-incl li:nth-child(2) {
+    margin-right: 0;
+}
+.nav-sections .header.links .btw-incl a {
+    padding: 12px 12px 0px 21px;
+    font-size: 12px;
+}
+.nav-sections .header.links .btw-incl li:nth-child(3) a {
+    padding: 0;
+}
+.nav-sections .nav-sections-item-content {
+    background-color: transparent;
+}
+}
         </style>
-        <li style="display: inline-block;margin-right: 10px;" id="textstatus">Incl. BTW</li>
-        <li style="margin-top: 2px !important;margin-left: 0px;">
+        
+        <li style="display: inline-block;margin-right: 10px;" id="textstatus"><a>Incl. BTW</a></li>
+        <li style="margin-top: 2px !important;margin-left: 5px;"><a>
             <label class="switch">
                 <input type="checkbox" id="switch" name="switch" '.$selected.'>
                 <span class="slider round"></span>
-            </label>
+            </label></a>
         </li>
-        <li style="display: inline-block;margin-right: 10px;" id="textstatus">Excl. BTW</li>';
+        <li style="display: inline-block;margin-right: 10px;" id="textstatus"><a>Excl. BTW</li></a>'; 
     }
 }
 ?>

@@ -26,13 +26,7 @@ $welcomeMessage = $block->getWelcome();
             <?= $block->getBlockHtml('header.additional') ?>
             <!-- /ko -->
         </li>
-
-        <li>
-        <a href="/winkel">Over onze winkel</a>&nbsp;&nbsp;&nbsp;|
-</li>
-<li>
-        Heeft u vragen? Bel 033 - 4801489&nbsp;&nbsp;&nbsp;|
-</li>
+        <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('header_left')->toHtml(); ?>
         <script type="text/x-magento-init">
         {
             "*": {
