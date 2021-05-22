@@ -21,8 +21,8 @@ if ($block->isLoggedIn()) {
         if ($block->isLoggedIn()) {
     ?>
     <ul class="dropdown-link">
-        <li><a href="<?php echo $this->getUrl('customer/account')  ?>"><?php echo __('my account'); ?></a></li>
-        <li><a href="<?php echo $this->getUrl('customer/account/logout')  ?>"><?php echo __('sign out'); ?></a></li>
+        <li><a href="<?php echo $this->getUrl('customer/account')  ?>"><?php echo $block->escapeHtmlAttr( __('My Account')); ?></a></li>
+        <li><a href="<?php echo $this->getUrl('customer/account/logout')  ?>"><?php echo  $block->escapeHtmlAttr(__('Sign Out')); ?></a></li>
     </ul>
     <?php } ?>
 </li>
