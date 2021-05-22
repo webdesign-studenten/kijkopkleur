@@ -94,6 +94,9 @@ class Header extends \Magento\Framework\View\Element\Html\Link
           border-radius: 50%;
         }
         @media only screen and (max-width: 767px){
+			.authorization-link .dropdown-link li {
+    display: none;
+}
         .header-left-link li:nth-child(3) {padding-left: 0px !important;}
         .dropdown-link{display:none}
     .nav-sections .header.links{background: #ebdac6;}
