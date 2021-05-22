@@ -1,0 +1,15 @@
+.header.links li:nth-child(8) a:before {
+    content: "";
+    background: url(../images/user-icon.png);
+    background-repeat: no-repeat;
+    width: 29px;
+    height: 31px;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    left: -39px;
+    top: -5px;
+}
+.header.links li:nth-child(8) {
+    position: relative;
+}

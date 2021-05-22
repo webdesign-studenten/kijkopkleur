@@ -97,7 +97,7 @@ class Header extends \Magento\Framework\View\Element\Html\Link
         <li style="display: inline-block;margin-right: 10px;" id="textstatus">Incl. BTW</li>
         <li style="margin-top: 2px !important;margin-left: 0px;">
             <label class="switch">
-                <input type="checkbox" id="switch" name="switch" '.$selected.'>
+                <input class="vatswitcher" type="checkbox" id="switch" name="switch" '.$selected.'>
                 <span class="slider round"></span>
             </label>
         </li>
