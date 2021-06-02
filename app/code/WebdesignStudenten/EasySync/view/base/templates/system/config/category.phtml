@@ -1,0 +1,29 @@
+<script>
+require([
+    'jquery',
+    'Magento_Ui/js/modal/alert',
+    'prototype'
+], function(jQuery, alert){
+    function category_sync() {
+        params = {
+        };
+
+        new Ajax.Request('<?php echo $block->getAjaxUrl() ?>', {
+            loaderArea:     true,
+            asynchronous:   true,
+            parameters:     params,
+            onSuccess: function(transport) {
+                alert({
+                    content: 'Category Sync is completed.'
+                })
+            }
+        });
+    }
+
+    jQuery('#categorySync').click(function () {
+        category_sync();
+    });
+});
+</script>
+
+<?php echo $block->getButtonHtml() ?>

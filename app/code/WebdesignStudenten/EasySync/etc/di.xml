@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="WebdesignStudenten\EasySync\Api\CustomerManagementInterface" type="WebdesignStudenten\EasySync\Model\CustomerManagement"/>
+	<preference for="WebdesignStudenten\EasySync\Api\UpdatedCustomerManagementInterface" type="WebdesignStudenten\EasySync\Model\UpdatedCustomerManagement"/>
+	<preference for="WebdesignStudenten\EasySync\Api\UpdatedNewsletterManagementInterface" type="WebdesignStudenten\EasySync\Model\UpdatedNewsletterManagement"/>
+	<preference for="WebdesignStudenten\EasySync\Api\UpdatedCategoryManagementInterface" type="WebdesignStudenten\EasySync\Model\UpdatedCategoryManagement"/>
+	<preference for="WebdesignStudenten\EasySync\Api\UpdatedProductManagementInterface" type="WebdesignStudenten\EasySync\Model\UpdatedProductManagement"/>
+	<preference for="WebdesignStudenten\EasySync\Api\UpdatedQuoteManagementInterface" type="WebdesignStudenten\EasySync\Model\UpdatedQuoteManagement"/>
+	<preference for="WebdesignStudenten\EasySync\Api\UpdatedSalesManagementInterface" type="WebdesignStudenten\EasySync\Model\UpdatedSalesManagement"/>
+	<preference for="WebdesignStudenten\EasySync\Api\UpdatedInvoiceManagementInterface" type="WebdesignStudenten\EasySync\Model\UpdatedInvoiceManagement"/>
+	<preference for="WebdesignStudenten\EasySync\Api\UpdatedShipmentManagementInterface" type="WebdesignStudenten\EasySync\Model\UpdatedShipmentManagement"/>
+	<preference for="WebdesignStudenten\EasySync\Api\ProductManagementInterface" type="WebdesignStudenten\EasySync\Model\ProductManagement"/>
+
+	<preference for="WebdesignStudenten\EasySync\Api\ProductManagementByIDInterface" type="WebdesignStudenten\EasySync\Model\ProductManagementByID"/>
+
+	<preference for="WebdesignStudenten\EasySync\Api\ShipmentManagementInterface" type="WebdesignStudenten\EasySync\Model\ShipmentManagement"/>
+	<preference for="WebdesignStudenten\EasySync\Api\InvoiceManagementInterface" type="WebdesignStudenten\EasySync\Model\InvoiceManagement"/>
+	<preference for="WebdesignStudenten\EasySync\Api\QuoteManagementInterface" type="WebdesignStudenten\EasySync\Model\QuoteManagement"/>
+	<preference for="WebdesignStudenten\EasySync\Api\SalesManagementInterface" type="WebdesignStudenten\EasySync\Model\SalesManagement"/>
+	<preference for="WebdesignStudenten\EasySync\Api\CartManagementInterface" type="WebdesignStudenten\EasySync\Model\CartManagement"/>
+	<preference for="WebdesignStudenten\EasySync\Api\WishlistManagementInterface" type="WebdesignStudenten\EasySync\Model\WishlistManagement"/>
+	<preference for="WebdesignStudenten\EasySync\Api\NewsletterManagementInterface" type="WebdesignStudenten\EasySync\Model\NewsletterManagement"/>
+	<preference for="WebdesignStudenten\EasySync\Api\CategoryManagementInterface" type="WebdesignStudenten\EasySync\Model\CategoryManagement"/>
+	<preference for="WebdesignStudenten\EasySync\Api\ProductManagementInterface" type="WebdesignStudenten\EasySync\Model\ProductManagement"/>
+	<preference for="WebdesignStudenten\EasySync\Api\DataIDRepositoryInterface" type="WebdesignStudenten\EasySync\Model\DataIDRepository"/>
+	<preference for="WebdesignStudenten\EasySync\Api\Data\DataIDInterface" type="WebdesignStudenten\EasySync\Model\Data\DataID"/>
+	<preference for="WebdesignStudenten\EasySync\Api\Data\DataIDSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+
+	<preference for="Magento\Customer\Model\Customer" type="WebdesignStudenten\EasySync\Model\Customer"/>
+    <preference for="WebdesignStudenten\EasySync\Api\Data\CustomerInterface" type="WebdesignStudenten\EasySync\Model\Data\Customer" />
+
+<!--
+    <type name="WebdesignStudenten\EasySync\Model\Customer">
+        <arguments>
+            <argument name="protectedModels" xsi:type="array">
+                <item name="customer" xsi:type="string">Magento\Customer\Model\Customer</item>
+            </argument>
+        </arguments>
+    </type>
+-->
+</config>

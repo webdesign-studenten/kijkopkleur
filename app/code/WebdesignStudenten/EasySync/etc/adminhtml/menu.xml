@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 WebdesignStudenten. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="WebdesignStudenten_EasySync::webdesignstudenten_easysync_index" title="Sync Log" module="WebdesignStudenten_EasySync"  sortOrder="30" dependsOnModule="WebdesignStudenten_EasySync" action="datasync/sync/index" resource="WebdesignStudenten_EasySync::webdesignstudenten_easysync_index"/>
+<!--AddMenu-->
+    </menu>
+</config>

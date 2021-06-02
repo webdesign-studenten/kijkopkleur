@@ -1,0 +1,182 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<route method="GET" url="/V1/webdesignstudenten-easysync/customer/:customerId">
+		<service class="WebdesignStudenten\EasySync\Api\CustomerManagementInterface" method="getCustomer"/>
+		<resources>
+        <resource ref="anonymous"/>
+    </resources>
+	</route>
+	<route method="GET" url="/V1/webdesignstudenten-easysync/updatedcustomer">
+		<service class="WebdesignStudenten\EasySync\Api\UpdatedCustomerManagementInterface" method="getUpdatedCustomer"/>
+			<resources>
+			    <resource ref="anonymous"/>
+			</resources>
+	</route>
+	<route method="GET" url="/V1/webdesignstudenten-easysync/updatedNewsletter">
+		<service class="WebdesignStudenten\EasySync\Api\UpdatedNewsletterManagementInterface" method="getUpdatedNewsletter"/>
+		<resources>
+      <resource ref="anonymous"/>
+    </resources>
+	</route>
+
+	<route method="GET" url="/V1/webdesignstudenten-easysync/updatedCategories">
+		<service class="WebdesignStudenten\EasySync\Api\UpdatedCategoryManagementInterface" method="getUpdatedCategories"/>
+		<resources>
+            <resource ref="anonymous"/>
+    </resources>
+	</route>
+
+		<route method="GET" url="/V1/webdesignstudenten-easysync/updatedProducts">
+			<service class="WebdesignStudenten\EasySync\Api\UpdatedProductManagementInterface" method="getUpdatedProducts"/>
+			<resources>
+	            <resource ref="anonymous"/>
+	    </resources>
+		</route>
+
+		<route method="GET" url="/V1/webdesignstudenten-easysync/updatedQuote">
+			<service class="WebdesignStudenten\EasySync\Api\UpdatedQuoteManagementInterface" method="getUpdatedQuotes"/>
+			<resources>
+          <resource ref="anonymous"/>
+	    </resources>
+		</route>
+
+		<route method="GET" url="/V1/webdesignstudenten-easysync/updatedSales">
+			<service class="WebdesignStudenten\EasySync\Api\UpdatedSalesManagementInterface" method="getUpdatedSales"/>
+			<resources>
+	            <resource ref="anonymous"/>
+	    </resources>
+		</route>
+		<route method="GET" url="/V1/webdesignstudenten-easysync/updatedInvoice">
+			<service class="WebdesignStudenten\EasySync\Api\UpdatedInvoiceManagementInterface" method="getUpdatedInvoice"/>
+			<resources>
+	            <resource ref="anonymous"/>
+	    </resources>
+		</route>
+		<route method="GET" url="/V1/webdesignstudenten-easysync/updatedShipment">
+			<service class="WebdesignStudenten\EasySync\Api\UpdatedShipmentManagementInterface" method="getUpdatedShipment"/>
+			<resources>
+	            <resource ref="anonymous"/>
+	    </resources>
+		</route>
+    <route url="/V1/webdesignstudenten-easysync/updatedcustomer/:syncId" method="PUT">
+        <service class="WebdesignStudenten\EasySync\Api\UpdatedCustomerManagementInterface" method="setUpdatedCustomerFlag"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/webdesignstudenten-easysync/updatedCategories/:syncId" method="PUT">
+        <service class="WebdesignStudenten\EasySync\Api\UpdatedCategoryManagementInterface" method="setUpdatedCategoryFlag"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/webdesignstudenten-easysync/updatedProducts/:syncId" method="PUT">
+        <service class="WebdesignStudenten\EasySync\Api\UpdatedProductManagementInterface" method="setUpdatedProductFlag"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/webdesignstudenten-easysync/updatedQuote/:syncId" method="PUT">
+        <service class="WebdesignStudenten\EasySync\Api\UpdatedQuoteManagementInterface" method="setUpdatedQuoteFlag"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/webdesignstudenten-easysync/updatedSales/:syncId" method="PUT">
+        <service class="WebdesignStudenten\EasySync\Api\UpdatedSalesManagementInterface" method="setUpdatedSalesFlag"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/webdesignstudenten-easysync/updatedShipment/:syncId" method="PUT">
+        <service class="WebdesignStudenten\EasySync\Api\UpdatedShipmentManagementInterface" method="setUpdatedShipmentFlag"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/webdesignstudenten-easysync/updatedInvoice/:syncId" method="PUT">
+        <service class="WebdesignStudenten\EasySync\Api\UpdatedInvoiceManagementInterface" method="setUpdatedInvoiceFlag"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/webdesignstudenten-easysync/updatedNewsletter/:syncId" method="PUT">
+        <service class="WebdesignStudenten\EasySync\Api\UpdatedNewsletterManagementInterface" method="setUpdatedNewsletterFlag"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+	<route method="GET" url="/V1/webdesignstudenten-easysync/products">
+		<service class="WebdesignStudenten\EasySync\Api\ProductManagementInterface" method="getNewProducts"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+	<!-- <route method="GET" url="/V1/webdesignstudenten-easysync/product/:prodID">
+		<service class="WebdesignStudenten\EasySync\Api\ProductManagementByIDInterface" method="getProduct"/>
+		<resources>
+            <resource ref="Magento_Catalog::products" />
+        </resources>
+	</route> -->
+	<route method="GET" url="/V1/webdesignstudenten-easysync/sales">
+		<service class="WebdesignStudenten\EasySync\Api\SalesManagementInterface" method="getSales"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+	<route method="GET" url="/V1/webdesignstudenten-easysync/cart">
+		<service class="WebdesignStudenten\EasySync\Api\CartManagementInterface" method="getCart"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+	<route method="GET" url="/V1/webdesignstudenten-easysync/wishlist">
+		<service class="WebdesignStudenten\EasySync\Api\WishlistManagementInterface" method="getWishlist"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+	<route method="GET" url="/V1/webdesignstudenten-easysync/newsletter/:newsletterID">
+		<service class="WebdesignStudenten\EasySync\Api\NewsletterManagementInterface" method="getNewsletter"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+	<route method="GET" url="/V1/webdesignstudenten-easysync/category/:categoryID">
+		<service class="WebdesignStudenten\EasySync\Api\CategoryManagementInterface" method="getCategory"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+	<route method="GET" url="/V1/webdesignstudenten-easysync/product/:prodID">
+		<service class="WebdesignStudenten\EasySync\Api\ProductManagementInterface" method="getProduct"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+	<route method="GET" url="/V1/webdesignstudenten-easysync/quote/:quoteID">
+		<service class="WebdesignStudenten\EasySync\Api\QuoteManagementInterface" method="getQuotes"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+	<route method="GET" url="/V1/webdesignstudenten-easysync/sales/:incrementID">
+		<service class="WebdesignStudenten\EasySync\Api\SalesManagementInterface" method="getSales"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+	<route method="GET" url="/V1/webdesignstudenten-easysync/invoice/:invoiceID">
+		<service class="WebdesignStudenten\EasySync\Api\InvoiceManagementInterface" method="getInvoice"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+	<route method="GET" url="/V1/webdesignstudenten-easysync/shipment/:shipmentID">
+		<service class="WebdesignStudenten\EasySync\Api\ShipmentManagementInterface" method="getShipment"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+</routes>

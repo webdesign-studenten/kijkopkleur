@@ -1,0 +1,29 @@
+<script>
+require([
+    'jquery',
+    'Magento_Ui/js/modal/alert',
+    'prototype'
+], function(jQuery, alert){
+    function newsletter_sync() {
+        params = {
+        };
+
+        new Ajax.Request('<?php echo $block->getAjaxUrl() ?>', {
+            loaderArea:     true,
+            asynchronous:   true,
+            parameters:     params,
+            onSuccess: function(transport) {
+                alert({
+                    content: 'Newsletter Sync is completed.'
+                })
+            }
+        });
+    }
+
+    jQuery('#newsletterSync').click(function () {
+        newsletter_sync();
+    });
+});
+</script>
+
+<?php echo $block->getButtonHtml() ?>

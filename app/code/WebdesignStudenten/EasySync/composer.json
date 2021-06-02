@@ -1,0 +1,22 @@
+{
+    "name": "webdesignstudenten/module-easysync",
+    "description": "Admin can sync customer, products, sales, cart, newsletter subscribers, wishlist etc.",
+    "type": "magento2-module",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Mage2Gen",
+            "email": "info@mage2gen.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "WebdesignStudenten\\EasySync\\": ""
+        }
+    }
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+	<group id="default">
+		<job instance="WebdesignStudenten\EasySync\Cron\ServerDataSync" method="execute" name="webdesignstudenten_easysync_serverdatasync">
+			<schedule>*/5 * * * *</schedule>
+		</job>
+        <job instance="WebdesignStudenten\EasySync\Cron\NewsletterDataSync" method="execute" name="webdesignstudenten_easysync_newsletterdatasync">
+			<schedule>*/5 * * * *</schedule>
+		</job>
+		<job instance="WebdesignStudenten\EasySync\Cron\CategoryDataSync" method="execute" name="webdesignstudenten_easysync_categorydatasync">
+			<schedule>*/5 * * * *</schedule>
+		</job>
+		<job instance="WebdesignStudenten\EasySync\Cron\ProductDataSync" method="execute" name="webdesignstudenten_easysync_productdatasync">
+			<schedule>*/5 * * * *</schedule>
+		</job>
+		<job instance="WebdesignStudenten\EasySync\Cron\QuoteDataSync" method="execute" name="webdesignstudenten_easysync_quotedatasync">
+			<schedule>*/5 * * * *</schedule>
+		</job>
+		<job instance="WebdesignStudenten\EasySync\Cron\SalesDataSync" method="execute" name="webdesignstudenten_easysync_salesdatasync">
+			<schedule>*/5 * * * *</schedule>
+		</job>
+		<job instance="WebdesignStudenten\EasySync\Cron\InvoiceDataSync" method="execute" name="webdesignstudenten_easysync_invoicedatasync">
+			<schedule>*/5 * * * *</schedule>
+		</job>
+		<job instance="WebdesignStudenten\EasySync\Cron\ShipmentDataSync" method="execute" name="webdesignstudenten_easysync_shipmentdatasync">
+			<schedule>*/5 * * * *</schedule>
+		</job>
+	</group>
+</config>

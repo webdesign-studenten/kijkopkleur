@@ -1,0 +1,100 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+
+		<tab id="webdesignStudenten" translate="label">
+			<label>Webdesign Studenten</label>
+		</tab>
+
+		<section id="easysync" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+			<label>Data Sync API</label>
+			<tab>webdesignStudenten</tab>
+			<resource>WebdesignStudenten_EasySync::config_webdesignstudenten_easysync</resource>
+			<group id="syncserver" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+				<label>Sync Server Settings</label>
+
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="data_mode" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                   <label>Data Mode</label>
+                   <source_model>WebdesignStudenten\EasySync\Model\Config\Source\DataMode</source_model>
+                </field>
+
+                <field id="sync_run_interval" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="3" translate="label" type="text">
+					<label>Number of Sync Run a Day</label>
+					<comment>How many times a day the sync will run.</comment>
+                    <depends>
+                        <field id="easysync/syncserver/data_mode">receiver</field>
+                    </depends>
+				</field>
+			    
+                <field id="server_url" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+					<label>Sync Server URL</label>
+					<comment>Provide server URL where you want to sync from.</comment>
+                    <depends>
+                        <field id="easysync/syncserver/data_mode">receiver</field>
+                    </depends>
+				</field>
+
+                <field id="customer_update" translate="label" type="button" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customer Sync</label>
+                    <frontend_model>WebdesignStudenten\EasySync\Block\System\Config\Customer</frontend_model>
+                    <depends>
+                        <field id="easysync/syncserver/data_mode">receiver</field>
+                    </depends>
+                </field>
+                <field id="newsletter_update" translate="label" type="button" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Newsletter Sync</label>
+                    <frontend_model>WebdesignStudenten\EasySync\Block\System\Config\Newsletter</frontend_model>
+                    <depends>
+                        <field id="easysync/syncserver/data_mode">receiver</field>
+                    </depends>
+                </field>
+                <field id="category_update" translate="label" type="button" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Category Sync</label>
+                    <frontend_model>WebdesignStudenten\EasySync\Block\System\Config\Category</frontend_model>
+                    <depends>
+                        <field id="easysync/syncserver/data_mode">receiver</field>
+                    </depends>
+                </field>
+                <field id="product_update" translate="label" type="button" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product Sync</label>
+                    <frontend_model>WebdesignStudenten\EasySync\Block\System\Config\Product</frontend_model>
+                    <depends>
+                        <field id="easysync/syncserver/data_mode">receiver</field>
+                    </depends>
+                </field>
+                <field id="sales_update" translate="label" type="button" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sales Sync</label>
+                    <frontend_model>WebdesignStudenten\EasySync\Block\System\Config\Sales</frontend_model>
+                    <depends>
+                        <field id="easysync/syncserver/data_mode">receiver</field>
+                    </depends>
+                </field>
+                <field id="invoice_update" translate="label" type="button" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Invoice Sync</label>
+                    <frontend_model>WebdesignStudenten\EasySync\Block\System\Config\Invoice</frontend_model>
+                    <depends>
+                        <field id="easysync/syncserver/data_mode">receiver</field>
+                    </depends>
+                </field>
+                <field id="shipment_update" translate="label" type="button" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Shipment Sync</label>
+                    <frontend_model>WebdesignStudenten\EasySync\Block\System\Config\Shipment</frontend_model>
+                    <depends>
+                        <field id="easysync/syncserver/data_mode">receiver</field>
+                    </depends>
+                </field>
+<!--
+				<field id="api_key" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+					<label>API Key</label>
+					<comment/>
+				</field>
+-->
+			</group>
+		</section>
+	</system>
+</config>

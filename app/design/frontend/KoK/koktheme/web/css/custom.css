@@ -45,6 +45,7 @@ header.page-header {background: #DCEADD;}
 .header.links .header-left {float: left;width: 100%;}
 .header.links .header-left ul.header-left-link {float: left;width: 100%;padding: 0;}
 .nav-sections .header.links li.greet.welcome {margin: 0;padding: 0;}
+.header.links li.greet.welcome {display: none;}
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
 .page-header .header.content .minicart-wrapper {margin-top: 0;}

@@ -1,0 +1,29 @@
+<script>
+    require([
+        'jquery',
+        'Magento_Ui/js/modal/alert',
+        'prototype'
+    ], function(jQuery, alert){
+        function invoice_sync() {
+            params = {
+            };
+
+            new Ajax.Request('<?php echo $block->getAjaxUrl() ?>', {
+                loaderArea:     true,
+                asynchronous:   true,
+                parameters:     params,
+                onSuccess: function(transport) {
+                    alert({
+                        content: 'Invoice Sync is completed.'
+                    })
+                }
+            });
+        }
+
+        jQuery('#invoiceSync').click(function () {
+            invoice_sync();
+        });
+    });
+</script>
+
+<?php echo $block->getButtonHtml() ?>

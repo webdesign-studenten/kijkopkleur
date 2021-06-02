@@ -1,4 +1,5 @@
 <?php 
+die("SDss");
 use Magento\Framework\App\Bootstrap;
 require 'app/bootstrap.php';
 $bootstrap = Bootstrap::create(BP, $_SERVER);

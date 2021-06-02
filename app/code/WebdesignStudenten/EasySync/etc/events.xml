@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+	<event name="checkout_cart_add_product_complete">
+		<observer instance="WebdesignStudenten\EasySync\Observer\Sales\CheckoutCartAddProductCompleteObserver" name="webdesignstudenten_easysync_observer_checkout_cart_add_product_complete_observer"/>
+	</event>
+	<event name="sales_order_place_after">
+		<observer instance="WebdesignStudenten\EasySync\Observer\Sales\OrderPlaceAfter" name="webdesignstudenten_easysync_observer_sales_orderplaceafter_sales_order_place_after"/>
+	</event>
+	<event name="sales_order_invoice_save_after">
+		<observer instance="WebdesignStudenten\EasySync\Observer\Sales\OrderInvoiceSaveAfter" name="webdesignstudenten_easysync_observer_sales_orderinvoicesaveafter"/>
+	</event>
+	<event name="sales_order_shipment_save_after">
+		<observer instance="WebdesignStudenten\EasySync\Observer\Sales\OrderShipmentSaveAfter" name="webdesignstudenten_easysync_observer_sales_ordershipmentsaveafter"/>
+	</event>
+	<event name="wishlist_add_product">
+		<observer instance="WebdesignStudenten\EasySync\Observer\Wishlist\AddProduct" name="webdesignstudenten_easysync_observer_wishlist_addproduct_wishlist_add_product"/>
+	</event>
+	<event name="customer_save_after_data_object">
+		<observer instance="WebdesignStudenten\EasySync\Observer\Customer\SaveAfterDataObject" name="webdesignstudenten_easysync_observer_customer_saveafterdataobject_customer_save_after_data_object"/>
+	</event>
+	<event name="customer_address_save_after">
+		<observer instance="WebdesignStudenten\EasySync\Observer\Customer\AddressSaveAfter" name="webdesignstudenten_easysync_observer_customer_addresssaveafter_customer_address_save_after"/>
+	</event>
+	<event name="catalog_category_save_after">
+    <observer instance="WebdesignStudenten\EasySync\Observer\Category\CategorySaveAfter" name="webdesignstudenten_easysync_observer_category_save"/>
+  </event>
+	<event name="catalog_product_save_after">
+		<observer instance="WebdesignStudenten\EasySync\Observer\Catalog\ProductSaveAfter" name="webdesignstudenten_easysync_observer_catalog_productsaveafter_catalog_product_save_after"/>
+	</event>
+    <event name="newsletter_subscriber_save_after">
+        <observer name="webdesignstudenten_easysync_observer_newsletter_saveafterdataobject" instance="WebdesignStudenten\EasySync\Observer\Newsletter\SaveAfterDataObject" />
+    </event>
+</config>
