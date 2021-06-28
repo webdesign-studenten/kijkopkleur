@@ -35,6 +35,8 @@ header.page-header {background: #DCEADD;}
 .page-header .header.content .minicart-wrapper {margin-top: 5rem;background: #fff;padding: 6px 12px;}
 .account .sidebar-main li.nav.item {float: left;width: 100%;}
 .block-collapsible-nav .item .delimiter{display: none;}
+.page-footer .footer.content .col-sm-3 {color: #69966f;}
+.page-footer .footer.content .col-sm-3 a {color: #69966f;}
 @media only screen and (max-width:767px) {
 .page-header .panel.header .header-left {display: none;}
 .block-search .control {float: left;width: 100%;}
@@ -45,7 +47,6 @@ header.page-header {background: #DCEADD;}
 .header.links .header-left {float: left;width: 100%;}
 .header.links .header-left ul.header-left-link {float: left;width: 100%;padding: 0;}
 .nav-sections .header.links li.greet.welcome {margin: 0;padding: 0;}
-.header.links li.greet.welcome {display: none;}
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
 .page-header .header.content .minicart-wrapper {margin-top: 0;}
@@ -54,4 +55,13 @@ header.page-header {background: #DCEADD;}
 .page-header .panel.header .header-left {width: 100%;}
 .page-header .panel.header ul.header.links {float: left;text-align: center;width: 100%;}
 .nav-sections .header.links{background: transparent !important;}
+}
+
+.navigation li.level0.nav-7.category-item.last.level-top.parent.ui-menu-item ul.submenu {
+    left: -362% !important;
+    min-width: 736px;
+}
+.navigation li.level0.nav-7.category-item.last.level-top.parent.ui-menu-item ul.submenu li {
+    float: left;
+    width: 25%;
 }
