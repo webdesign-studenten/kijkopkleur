@@ -77,3 +77,4 @@ atlassian*
 /cgi-bin
 /staging
 /staging.back
+/pub/media/media_bak/*

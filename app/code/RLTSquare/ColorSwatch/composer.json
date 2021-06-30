@@ -1,0 +1,28 @@
+{
+  "name": "rltsquare/color-swatch",
+  "description": "RLTSquare Color Swatch",
+  "require": {
+    "php": "~7.1.0|~7.2.0|~7.3.0|~7.4.0"
+  },
+  "type":"magento2-module",
+  "version": "1.0.0",
+  "license":[
+    "proprietary"
+  ],
+  "authors":[
+    {
+      "name" : "Idrees Butt",
+      "email" : "idrees@rltsquare.com",
+      "homepage" : "https://www.rltsquare.com",
+      "role" : "Software Engineer"
+    }
+  ],
+  "autoload":{
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "RLTSquare\\ColorSwatch\\" : ""
+    }
+  }
+}

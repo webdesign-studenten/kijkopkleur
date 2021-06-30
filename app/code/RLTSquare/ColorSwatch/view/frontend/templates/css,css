@@ -1,0 +1,51 @@
+.color-choice--filterSide .groupsearch,
+.color-choice--filterSide .colorsearch {
+    border-radius: 290486px !important;
+    background-color: #fff;
+    border-color: #dbdbdb;
+    padding: 10px 35px !important;
+    height: 36px !important;
+}
+
+.color-choice--filterSide  .groupsearch:focus,
+.color-choice--filterSide .colorsearch:focus {
+    box-shadow: none !important;
+}
+
+.color-choice--filterSide .groupsearch + .icon.is-small,
+.color-choice--filterSide .colorsearch + .icon.is-small {
+    color: #dbdbdb;
+    position: absolute;
+    top: 0;
+    width: 36px;
+    height: 36px;
+    right: 0;
+}
+
+.color-choice--filterSide .filter-bar.field .control{
+    position: relative;
+}
+
+.color-choice--filterSide i.material-icons:after{
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 20px;
+    line-height: 36px;
+    color: #757575;
+    content: '\e615';
+    font-family: 'luma-icons';
+    margin: 0;
+    vertical-align: top;
+    display: inline-block;
+    font-weight: normal;
+    overflow: hidden;
+    speak: none;
+    text-align: center;
+}
+
+.color-choice--filterSide i.material-icons {
+    display: inline-block;
+    font-style: normal;
+    text-align: center;
+}
+

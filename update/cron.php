@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
 
@@ -40,7 +40,7 @@ if (!file_exists($backupDirectory)) {
         print $notification;
         exit(UPDATE_CRON_EXIT_WITH_ERROR);
     }
-    chmod($backupDirectory, 0755);
+    chmod($backupDirectory, 0770);
 }
 
 try {

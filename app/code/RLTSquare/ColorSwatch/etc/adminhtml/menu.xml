@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+*
+* @category : RLTSquare
+* @Package  : RLTSquare_ColorSwatch
+* @Author   : RLTSquare <support@rltsquare.com>
+* @copyright Copyright 2021 © rltsquare.com All right reserved
+* @license https://rltsquare.com/
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <update id="RLT_Square::rltsquare" title="RLT Square" module="Magento_Backend" sortOrder="300" resource="RLT_Square::rltsquare"/>
+        <add id="RLTSquare_ColorSwatch::colorswatch_main" title="Color Swatch" module="RLTSquare_ColorSwatch" sortOrder="10" parent="RLT_Square::rltsquare" resource="RLTSquare_ColorSwatch::colorswatch_main"/>
+        <add id="RLTSquare_ColorSwatch::colorswatch_add_brands" title="Color Groups" module="RLTSquare_ColorSwatch" sortOrder="20" parent="RLTSquare_ColorSwatch::colorswatch_main" action="colorswatch/index/index" resource="RLTSquare_ColorSwatch::colorswatch_add_brands"/>
+        <add id="RLTSquare_ColorSwatch::colorswatch_imports" title="Imports" module="RLTSquare_ColorSwatch" sortOrder="20" parent="RLTSquare_ColorSwatch::colorswatch_main" action="colorswatch/import/index" resource="RLTSquare_ColorSwatch::colorswatch_imports"/>
+    </menu>
+</config>

@@ -23,13 +23,15 @@ class Changestatus extends \Magento\Framework\App\Action\Action
 
 	public function execute()
 	{
+	    $valueSet = false;
         $data = $this->getRequest()->getPostValue();
         if($data['status'] == "1"){
 			$flag = 1;
-			echo "1";
+			//echo "1";
 			$this->checkoutSession->setVatStatus("1");
+			$valueSet = true;
 		}else{
-			echo "0";
+			//echo "0";
 			$this->checkoutSession->setVatStatus("0");
 		}
     }

@@ -1,11 +1,11 @@
 <?php
 /**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
 namespace Magento\Update;
 
-class MaintenanceModeTest extends \PHPUnit_Framework_TestCase
+class MaintenanceModeTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * Path to the maintenance flag file

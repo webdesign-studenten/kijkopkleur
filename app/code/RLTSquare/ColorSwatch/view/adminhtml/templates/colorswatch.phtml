@@ -1,0 +1,39 @@
+<script type='text/javascript'>
+    require([
+        'jquery'
+    ], function ($) {
+        'use strict';
+        $(document).on('click',"[data-index='color-groups']",function() {
+            var flag = 1;
+            setInterval(function() {
+                if(flag) {
+                    if ($("[data-index=background_color]").length ) {
+                        flag = 0;
+                        $("[data-index=background_color]")[1].hide();
+                    }
+                }
+            }, 100);
+        });
+        $(document).on('change',"[name='product[colors]']",function() {
+            setTimeout(function() {
+                var color = $("[name='product[colors]']").val();
+                if( color == 'shade' ) {
+                    $("[data-index=brands]").hide();
+                    $("[data-index=background_color]")[0].show();
+                }
+                if( color == 'light' || color == 'dark'  ) {
+                    $("[data-index=brands]").show();
+                    $("[data-index=background_color]")[0].hide();
+                }
+                if( color == 'white' ) {
+                    $("[data-index=brands]").hide();
+                    $("[data-index=background_color]")[0].hide();
+                }
+                if( color == 'empty' ) {
+                    $("[data-index=brands]").hide();
+                    $("[data-index=background_color]")[0].hide();
+                }
+            }, 100);
+        });
+    });
+</script>

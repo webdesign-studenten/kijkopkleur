@@ -1,0 +1,575 @@
+<style>
+    .color-choice--filterSide .groupsearch,
+    .color-choice--filterSide .colorsearch {
+        border-radius: 290486px !important;
+        background-color: #fff;
+        border-color: #dbdbdb;
+        padding: 10px 35px !important;
+        height: 36px !important;
+    }
+    .color-choice--filterSide  .groupsearch:focus,
+    .color-choice--filterSide .colorsearch:focus {
+        box-shadow: none !important;
+    }
+    .color-choice--filterSide .groupsearch + .icon.is-small,
+    .color-choice--filterSide .colorsearch + .icon.is-small {
+        color: #dbdbdb;
+        position: absolute;
+        top: 0;
+        width: 36px;
+        height: 36px;
+        right: 0;
+    }
+    .color-choice--filterSide .filter-bar.field .control{
+        position: relative;
+    }
+    .color-choice--filterSide i.material-icons:after{
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-size: 20px;
+        line-height: 36px;
+        color: #757575;
+        content: '\e615';
+        font-family: 'luma-icons';
+        margin: 0;
+        vertical-align: top;
+        display: inline-block;
+        font-weight: normal;
+        overflow: hidden;
+        speak: none;
+        text-align: center;
+    }
+    .color-choice--filterSide i.material-icons {
+        display: inline-block;
+        font-style: normal;
+        text-align: center;
+    }
+    .variant-selection{
+
+        z-index: 25;
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+
+    }
+    .modal-popup._inner-scroll .modal-inner-wrap {
+        height: 90%;
+        width: 97%;
+    }
+    .itemclass {
+        position: relative;
+        width: 21%;
+        display: inline-block;
+        vertical-align: top;
+        margin-bottom: 20px;
+
+
+    }
+    .left-side li {padding-bottom: 10px;}
+
+    .left-side li a
+    {
+        font-size: 14px;
+        font-weight: 700;
+        color: #000;
+    }
+    .product-configure #ChoosenColor{
+        padding: 16px;
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        color: rgb(255, 255, 255);
+        background-color: rgb(56, 63, 67) !important;
+    }
+    .imgcustom.active {
+        border: 1px solid red;
+    }
+    .zoom.active {
+        border: 1px solid red;
+    }
+    .relateddiv {
+
+        text-align: center;
+        margin-right: 7px;
+        width: 150px;
+        height: 100px;
+        padding: 25px 20px;
+        box-shadow: 0px 0px 11px -3px rgba(0,0,0,0.37);
+        border-radius: 5px;
+    }
+    .modal-popup .modal-title{
+        font-weight: 700;
+    }
+    .fa-shopping-cart:before {
+        content: "\f07a";
+        position: relative;
+        right: 13px;
+    }
+    .left-side a:hover{
+        text-decoration: none;
+    }
+    .modal-footer button {
+        background-image: none;
+        background: red;
+        border: 1px solid red;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+        font-weight: 600;
+        margin: 0;
+        padding: 8px 32px;
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+        box-sizing: border-box;
+        vertical-align: middle;
+        border-radius: 0 !important;
+    }
+    .nano-content .subtitle {
+        font-weight: 500;
+        margin-bottom: 40px;
+    }
+    .color-swatches--content .imgcustom {
+        min-width: 100%;
+        object-fit: inherit;
+        margin-right: 10px;
+        min-height: 100%;
+    }
+    .itemclass span {
+        position: relative;
+    }
+    .color-swatches--content {
+        display: inline-block;
+        width: 100%;
+    }
+    .nano-content .left-side {
+        width: 18%;
+        float: left;
+
+    }
+    .product-info-main .fieldset .swatcher .actionn.primaryy{
+        float: right;
+        background-image: none;
+        background: red;
+        border: 1px solid red;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+        font-weight: 600;
+        padding: 10px 75px;
+        font-size: 1.4rem;
+        box-sizing: border-box;
+        vertical-align: middle;
+    }
+    .product-info-main .fieldset>.field>.label {
+        font-weight: 600;
+        margin-top: 8px;
+        margin-right: 10px;
+    }
+    .product-info-main .fieldset #qty {
+        height: 38px;
+    }
+    .product-info-main .fieldset .actions {
+        width: 52%;
+        display: inline-block;
+    }
+    .product-info-main .label {
+        float: left;
+        margin-top: 6px;
+        margin-right: 14px;
+    }
+
+    .product-info-main .control{
+        width: 7%;
+        float: left;
+    }
+    .nano-content .right-side {
+        width: 80%;
+        float: right;
+        border-left: 1px solid #ccc;
+        padding-left: 14px;
+        margin-top: -6%;
+    }
+    .custom.active{
+        border: 2px solid red;
+    }
+    .customli{
+        width: 32%;
+        margin-bottom: 5px;
+        margin-right: 5px;
+        position: relative;
+    }
+    .color-guide:hover {
+        border: 1px solid red;
+        background-color: transparent;
+    }
+    .collection.active {
+        color: red;
+    }
+    .color-guide .fa-plus-circle{
+        float: left;
+        font-size: 27px;
+        top: 12px;
+        position: relative;
+    }
+    li::marker {
+        display: none !important;
+    }
+    .color-guide .add{
+        float: left;
+        margin-left: 20px;
+        margin-top: 18px;
+        margin-bottom: 18px;
+    }
+    .color-swatchess-wrapper{
+        position: relative;
+    }
+    .color-guide .color-wheel{
+        float: right;
+        margin-top: 2px;
+    }
+    .custom {
+        padding-left: 0;
+        align-items: center;
+        background-color: #eeeeee;
+        box-shadow: 0 0 0 1px #A5A5A5;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        cursor: pointer;
+        display: flex;
+        margin-bottom: 0;
+        border-radius: 4px;
+        padding: 12px;
+        height: 80px;
+        transition: all .2s ease-out;
+    }
+    .imgcustom {
+        /*height: 80px !important;*/
+        object-position: left;
+        min-width: 50px;
+        object-fit: cover;
+        margin-right: 10px;
+        min-height: 40px
+    }
+    .customcontent {
+
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        font-family: Asap, Arial, Helvetica, sans-serif;
+        letter-spacing: 0;
+        word-spacing: 0;
+    }
+    .customp {
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 2px;
+        content: "";
+        display: block;
+        overflow: hidden;
+        margin-top: 0px;
+    }
+    .customh6 {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        margin-bottom: 0;
+        color: #000;
+        font-family: Asap, Arial, Helvetica, sans-serif;
+        letter-spacing: 0;
+        margin-top: 5px;
+    }
+    .zoom:hover {
+        -ms-transform: scale(1.5); /* IE 9 */
+        -webkit-transform: scale(1.5); /* Safari 3-8 */
+        transform: scale(1.5);
+    }
+    .color-guide {
+        background-color: #eee;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 0 1px #A5A5A5;
+        color: #000;
+        margin-top: 15px;
+        padding: 10px 15px;
+        transition: 0.2s;
+        width: 100%;
+        margin-top: 6%;
+        margin-bottom: 6%;
+    }
+</style>
+<script type='text/javascript'>
+
+    require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal'
+        ],
+        function(
+            $,
+            modal
+        ) {
+            var flag = 1;
+            setInterval(function() {
+                if(flag) {
+                    if ( $('.product-add-form').length ) {
+                        flag = 0;
+                        <?php
+                        if($this->isConfigureable() == "configurable" && $this->EnableColorSwatch() ) {
+                        $_children=$this->getChildsProducts();
+                        ?>
+                        $(".product-add-form").remove();
+                        $(".product-info-price").after('<ol class="variant-selection" style="z-index: 25;"><?php foreach ($_children as $child) {  ?><li class="customli"><input id="<?php echo $child->getId(); ?>" class="productcheckbox" name="checkbox" type="radio" style="display: none;" value="<?php echo $child->getId(); ?>" ><?php $color = $this->getBackgroundColor($child->getId()); ?>
+                            <label <?php if($color['enable']) { ?> style="background-color:<?php echo $color['color']; ?>" <?php } ?> for="<?php echo $child->getId(); ?>" class="custom"><?php if(!$color['enable']) { ?>
+                            <img class="imgcustom" src="<?php echo $this->getProductImageUrl($child); ?>" alt="<?php echo $child->getName(); ?>" width="50px" height="80px"><?php  } ?>
+                            <div class="customcontent"><p class="customp"><?php echo $child->getName(); ?></p><h6 class="customh6"> <span class="incl-vat" style="display: block;"><?php
+
+                            $price = (int)$child->getPrice();
+                            echo $price."$"; ?></span></h6></div></label></li><div id="modal-<?php echo $child->getId(); ?>" style="display: none;"><aside class="color-choice--filterSide column is-one-quarter-desktop is-one-third-tablet"><div id="filter-collections-list" ><div id="choice-list"><div class="nano"><div class="nano-content"><ul><div class="my-<?php echo $child->getId(); ?> is-hidden-mobile"><h2 class="subtitle"><?php echo $child->getName(); ?></h2></div><a class="color-choice--wrapper"><div class="filter-bar field" style="width: 18%;" ><p class="control has-icons-left has-icons-right"><input class="groupsearch" type="text" id="groupsearch-<?php echo $child->getId(); ?>" placeholder="Search"><span class="icon is-small is-right"><i class="material-icons"></i></span></p></div></a><div class="left-side" id="leftsidesearch-<?php echo $child->getId(); ?>" style="display:none;"></div><div id="leftside-<?php echo $child->getId(); ?>" class="left-side"><?php
+                            $attributevalues = $this->getBrands($child->getId());
+
+                            foreach ($attributevalues as $key => $value) {
+                            ?>
+                            <li><a id="brandid-<?php echo $key ?>-<?php echo $child->getId(); ?>" class="collection" value="<?php echo $key; ?>"><?php echo $value; ?>
+                            </a></li>   <?php } ?> </div>                  <div class="right-side"><div class="column is-two-thirds" style="margin-top: -2%;">                            <div class="filter-bar color-filter-bar field"><p class="control has-icons-left has-icons-right is-expanded"><input class="input is-rounded is-shadowless colorsearch" type="text" id="color-search-<?php echo $child->getId(); ?>" name="searchSide" placeholder="Filter">                                   <span class="icon is-small is-right">                                    <i class="material-icons"></i>                                </span></p>                           </div> </div>  <div id="colorsearch-<?php echo $child->getId(); ?>" class="color-swatchess-wrapper" style="display:none;">                 <div class="nano">                     <div class="nano-content2">                   <div class="color-swatches--content">                    </div>                      </div>                     </div>                   </div>  <?php
+
+
+                        $displaycount = 0;
+                        foreach ($attributevalues as $key => $value) {
+                        ?>
+                        <div id="brandproducts-<?php echo $key; ?>-<?php echo $child->getId(); ?>" class="color-swatchess-wrapper" <?php if($displaycount != 0) { ?>
+                        style="display: none;"<?php } $displaycount++; ?>  ><div class="nano"> <div class="nano-content2">                                                    <div class="color-swatches--content">                                                           <?php $productids = $this->getRelatedProducts($key);
+                            foreach ($productids as $key => $value) {
+                            $relatedproduct = $this->getProduct($value);
+                            ?>
+                            <div class="itemclass dark" id="<?php echo $value; ?>" >                                                           <?php $color = $this->getBackgroundColor($value); ?><?php if($color['enable']) { ?>
+                            <div class="zoom relateddiv" style="background-color:<?php echo $color['color']; ?>" ><?php echo $relatedproduct->getName(); ?></div><?php } else { ?>
+                        <img class="imgcustom zoom" src="<?php echo $this->getProductImageUrl($relatedproduct); ?>" alt="<?php echo $relatedproduct->getName(); ?>" width="50px" height="80px"><?php } ?>
+                        </div>                                                            <?php } ?>
+                    </div>                                                    </div>                                                </div>                                            </div>                                        <?php } ?> </div>                                   </ul>                                </div>                            </div>                        </div>                   </div>                </aside>            </div>        <?php } ?>
+                    </ol>    <button class="color-guide color-guide-submit" style="z-index: 24;display:none;">       <span><i class="fas fa-plus-circle"></i><span class="add">Voeg een kleur toe</span><img style="display:none" class="color-wheel" src="" alt="kleurenwaaier voor alle kleuren" width="48px" height="48px"><div class="color-div" style="display:none;width: 48px;height: 48px;float: right;" > </div> </span>    </button>    <div class="product-configure" style="z-index: 37;display:none;">        <div class="product-configure-custom" role="region" aria-label="Product configurations">           <input type="hidden" name="productid" value="">           <div id="ChoosenColor" class="product-configure-custom-option light" style="display: block; background-color: rgb(220, 224, 219);">            </div>       </div>   </div>    <div class="fieldset">        <div class="field qty">            <label class="label" for="qty"><span>Qty</span></label>           <div class="control">             <input type="number" name="qty" id="qty" min="0" value="1" title="Qty" class="input-text qty" data-validate="{&quot;required-number&quot;:true,&quot;validate-item-quantity&quot;:{&quot;minAllowed&quot;:1,&quot;maxAllowed&quot;:10000}}">            </div>        </div>       <div class="actions swatcher">          <button type="button" title="Add to Cart" class="actionn primaryy tocart" id="product-addtocart-button"><span> <i class="fas fa-shopping-cart"></i></span<span>Add to Cart</span>            </button>       </div>   </div>');
+
+                        var selected_prodr_id = 0;
+                        var options = {
+                            type: 'popup',
+                            responsive: true,
+                            innerScroll: true,
+                            title: 'More Groups',
+                            buttons: [
+                                {
+                                    text: $.mage.__('Add'),
+                                    class: 'under-21 button',
+                                    click: function () {
+                                        $.ajax({
+                                            method: "POST",
+                                            showLoader: true,
+                                            url: "<?php echo $this->getUrl('colorswatch/index/product'); ?>",
+                                            data: {
+                                                product_id:selected_prodr_id
+                                            },
+                                            success: function (productdata) {
+                                                if(productdata.buttonshow) {
+                                                    $('.product-configure').show();
+                                                    $('.product-configure').children('div').children('div').text("Product Name: "+productdata.product_name);
+                                                    $('.product-configure').children('div').children('input').val(productdata.product_id);
+                                                } else {
+                                                    $('.roduct-configure').hide();
+                                                }
+                                            },
+                                            error: function (error) {
+                                            }
+                                        });
+                                        this.closeModal();
+                                    }
+                                },
+                                {
+                                    text: $.mage.__('Delete'),
+                                    class: 'delete-item',
+                                    click: function () {
+                                        selected_prodr_id = 0;
+                                        $('.product-configure').hide();
+                                        $('.product-configure').children('div').children('div').text("Product Name: ");
+                                        $('.product-configure').children('div').children('input').val("");
+
+                                    }
+                                }
+                            ]
+                        };
+                        <?php
+                        $_children = $this->getChildsProducts();
+                        foreach ($_children as $child) {  ?>
+                        var popup = modal(options, $('#modal-<?php echo $child->getId(); ?>'));
+                        <?php
+                        $attributevalues = $this->getBrands($child->getId());
+                        foreach ($attributevalues as $key => $value) {
+                        ?>
+                        $("#brandid-<?php echo $key ?>-<?php echo $child->getId(); ?>").on('click',function() {
+                            var id = $(this).attr('id');
+                            $(".color-swatchess-wrapper").hide();
+                            id = id.split("-");
+                            $("#brandproducts-"+id[1]+"-"+id[2]+"").show();
+                        });
+                        <?php } ?>
+                        <?php } ?>
+                        $(".color-guide").on('click',function() {
+                            $("#modal-"+$(this).attr('id')+"").modal("openModal");
+                        });
+                        $(".itemclass").on('click',function() {
+                            var productid = $(this).attr('id');
+                            selected_prodr_id = productid;
+                        });
+                        $(".productcheckbox").click(function() {
+                            var id = $(this).attr("id");
+                            $.ajax({
+                                method: "POST",
+                                showLoader: true,
+                                url: "<?php echo $this->getUrl('colorswatch/index/index'); ?>",
+                                data: {
+                                    product_id:id
+                                },
+                                success: function (productdata) {
+                                    if(productdata.buttonshow) {
+                                        $('.color-guide').show();
+                                        if( productdata.colorenable ) {
+                                            $(".color-div").show();
+                                            $(".color-div").css("background-color", ""+productdata.color+"");
+                                            $('.color-guide').children('span').children('img').hide();
+                                        } else {
+                                            $(".color-div").hide();
+                                            $('.color-guide').children('span').children('img').show();
+                                            $('.color-guide').children('span').children('img').attr('src',productdata.imageurl);
+                                        }
+                                        $('.color-guide').attr('id',productdata.product_id);
+                                    } else {
+                                        $('.product-configure').children('div').children('input').val(productdata.product_id);
+                                        $('.color-guide').hide();
+                                    }
+                                },
+                                error: function (error) {
+                                }
+                            });
+                        });
+                        $("#product-addtocart-button").click(function() {
+                            var id = $('.product-configure').children('div').children('input').val();
+                            var qty = $('#qty').val();
+                            $.ajax({
+                                method: "POST",
+                                showLoader: true,
+                                url: "<?php echo $this->getUrl('colorswatch/index/addCart'); ?>",
+                                data: {
+                                    product_id:id,
+                                    qty:qty
+                                },
+                                success: function (productdata) {
+                                    if(productdata.success) {
+                                        require('Magento_Customer/js/customer-data').reload();
+                                    } else {
+                                    }
+                                },
+                                error: function (error) {
+                                }
+                            });
+                        });
+                        $(".colorsearch").on('input', function() {
+                            var id = $(this).attr("id");
+                            var userval = $(this).val();
+                            id = id.split("-");
+                            $.ajax({
+                                method: "POST",
+                                showLoader: false,
+                                async:true,
+                                url: "<?php echo $this->getUrl('colorswatch/index/colorsearch'); ?>",
+                                data: {
+                                    product_id:id[2],
+                                    user_string:userval
+                                },
+                                success: function (productdata) {
+                                    var i;
+                                    for (i = 0; i < productdata.braindids.length; ++i) {
+                                        $('#brandproducts-'+productdata.braindids[i]+'-'+productdata.product_id+'').hide();
+                                    }
+                                    $('#colorsearch-'+productdata.product_id+'').show();
+                                    $('#colorsearch-'+productdata.product_id+'').children('div').children('div').children('div').empty();
+                                    var i;
+                                    for (i = 0; i < productdata.products.length; ++i) {
+                                        if(productdata.products[i].color) {
+                                            $('#colorsearch-'+productdata.product_id+'').children('div').children('div').children('div').append('<div class="itemclass dark" id='+productdata.products[i].product_id+'><div class="zoom relateddiv" style="background-color:'+productdata.products[i].color+'">'+productdata.products[i].name+'</div></div>');
+                                        } else {
+                                            $('#colorsearch-'+productdata.product_id+'').children('div').children('div').children('div').append('<div class="itemclass dark" id='+productdata.products[i].product_id+'><img class="imgcustom zoom" src="'+productdata.products[i].imgurl+'" alt="'+productdata.products[i].name+'" width="100px" height="182px"></div>');
+                                        }
+                                    }
+                                    $(".itemclass").on('click',function() {
+                                        var productid = $(this).attr('id');
+                                        selected_prodr_id = productid;
+                                    });
+                                    $(".zoom").click(function () {
+                                        $(".zoom").removeClass("active");
+                                        $(this).addClass("active");
+                                    });
+                                },
+                                error: function (error) {
+                                }
+                            });
+                        });
+                        $(".groupsearch").on('input', function() {
+                            var id = $(this).attr("id");
+                            var userval = $(this).val();
+                            id = id.split("-");
+                            $.ajax({
+                                method: "POST",
+                                showLoader: false,
+                                async:true,
+                                url: "<?php echo $this->getUrl('colorswatch/index/groupsearch'); ?>",
+                                data: {
+                                    product_id:id[1],
+                                    user_string:userval
+                                },
+                                success: function (productdata) {
+                                    if(productdata.show_all) {
+                                        $('#leftside-'+productdata.product_id+'').show();
+                                        $('#leftsidesearch-'+productdata.product_id+'').hide();
+                                    } else {
+                                        $('.left-side').hide();
+                                        $('#leftsidesearch-'+productdata.product_id+'').show();
+                                        var i;
+                                        $('#leftsidesearch-'+productdata.product_id+'').empty();
+                                        for (i = 0; i < productdata.brands.length; ++i) {
+                                            $('#leftsidesearch-'+productdata.product_id+'').append('<li><a id="brandid-'+productdata.brands[i].brand_id+'-'+productdata.product_id+'" class="collection" value="'+productdata.brands[i].brand_id+'">'+productdata.brands[i].name+'</a></li>');
+                                            $("#brandid-"+productdata.brands[i].brand_id+"-"+productdata.product_id+"").on('click',function() {
+                                                var id = $(this).attr('id');
+                                                $(".color-swatchess-wrapper").hide();
+                                                id = id.split("-");
+                                                $("#brandproducts-"+id[1]+"-"+id[2]+"").show();
+                                            });
+                                        }
+                                        $(".collection").click(function () {
+                                            $(".collection").removeClass("active");
+                                            $(this).addClass("active");
+                                        });
+                                    }
+                                },
+                                error: function (error) {
+                                }
+                            });
+                        });
+                        $(".custom").click(function () {
+                            $(".custom").removeClass("active");
+                            $(this).addClass("active");
+                        });
+                        $(".collection").click(function () {
+                            $(".collection").removeClass("active");
+                            $(this).addClass("active");
+                        });
+                        $(".zoom").click(function () {
+
+                            $(".zoom").removeClass("active");
+                            $(this).addClass("active");
+                        });
+                        <?php } ?>
+                    }
+                }
+            }, 200);
+        });
+</script>
+

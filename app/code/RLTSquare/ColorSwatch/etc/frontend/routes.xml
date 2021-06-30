@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+*
+* @category : RLTSquare
+* @Package  : RLTSquare_ColorSwatch
+* @Author   : RLTSquare <support@rltsquare.com>
+* @copyright Copyright 2021 © rltsquare.com All right reserved
+* @license https://rltsquare.com/
+*/ 
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="standard">
+        <route id="colorswatch" frontName="colorswatch">
+            <module name="RLTSquare_ColorSwatch" />
+        </route>
+    </router>
+</config>
