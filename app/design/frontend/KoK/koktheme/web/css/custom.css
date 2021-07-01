@@ -65,3 +65,6 @@ header.page-header {background: #DCEADD;}
     float: left;
     width: 25%;
 }
+.page-footer {
+    background: #dceadd;
+}
