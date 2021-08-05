@@ -71,7 +71,7 @@ header.page-header {background: #DCEADD;}
 
 .navigation .level0.parent > .level-top > .ui-menu-icon {
     position: absolute;
-    right: 0;
+    right: -10px;
     display: inline-block;
     text-decoration: none;
 }
