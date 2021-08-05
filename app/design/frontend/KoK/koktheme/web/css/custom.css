@@ -26,7 +26,7 @@
 .page-header .panel.header .header-left ul.header-left-link li {float: left;margin: 0 0 0 9px;}
 .page-header .panel.header .header-left ul.header-left-link li a {color: #fff;border-right: 1px solid #fff;padding-right: 10px;}
 .page-header .header.content .logo {width: 34%;}
-.page-header .header.content .block.block-search {float: left;width: 385px;text-align: center;display: flex;justify-content: center;767margin-top: 5rem;}
+.page-header .header.content .block.block-search {float: left;width: 385px;text-align: center;display: flex;justify-content: center;margin-top: 5rem;}
 .page-header .header.content .block.block-search .block.block-content {width: 100%;}
 header.page-header {background: #DCEADD;}
 .minicart-wrapper .action.showcart:before {content: "\f07a";font-family: fontAwesome;color: #333 !important;line-height: 20px;}
