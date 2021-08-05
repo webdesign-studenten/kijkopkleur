@@ -26,7 +26,7 @@
 .page-header .panel.header .header-left ul.header-left-link li {float: left;margin: 0 0 0 9px;}
 .page-header .panel.header .header-left ul.header-left-link li a {color: #fff;border-right: 1px solid #fff;padding-right: 10px;}
 .page-header .header.content .logo {width: 34%;}
-.page-header .header.content .block.block-search {float: left;width: 385px;text-align: center;display: flex;justify-content: center;margin-top: 5rem;}
+.page-header .header.content .block.block-search {float: left;width: 385px;text-align: center;display: flex;justify-content: center;767margin-top: 5rem;}
 .page-header .header.content .block.block-search .block.block-content {width: 100%;}
 header.page-header {background: #DCEADD;}
 .minicart-wrapper .action.showcart:before {content: "\f07a";font-family: fontAwesome;color: #333 !important;line-height: 20px;}
@@ -37,6 +37,7 @@ header.page-header {background: #DCEADD;}
 .block-collapsible-nav .item .delimiter{display: none;}
 .page-footer .footer.content .col-sm-3 {color: #69966f;}
 .page-footer .footer.content .col-sm-3 a {color: #69966f;}
+.page-footer {background: #dceadd;}
 @media only screen and (max-width:767px) {
 .page-header .panel.header .header-left {display: none;}
 .block-search .control {float: left;width: 100%;}
@@ -57,14 +58,36 @@ header.page-header {background: #DCEADD;}
 .nav-sections .header.links{background: transparent !important;}
 }
 
-.navigation li.level0.nav-7.category-item.last.level-top.parent.ui-menu-item ul.submenu {
+.navigation li.level0.nav-7.last.level-top.parent.ui-menu-item ul.submenu {
     left: -362% !important;
     min-width: 736px;
 }
-.navigation li.level0.nav-7.category-item.last.level-top.parent.ui-menu-item ul.submenu li {
+.navigation li.level0.nav-7.last.level-top.parent.ui-menu-item ul.submenu li {
     float: left;
     width: 25%;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
-.page-footer {
-    background: #dceadd;
+
+.navigation .level0.parent > .level-top > .ui-menu-icon {
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.navigation .level0.parent > .level-top > .ui-menu-icon:after {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 12px;
+    line-height: 20px;
+    color: inherit;
+    content: '\e622';
+    font-family: 'luma-icons';
+    vertical-align: middle;
+    display: inline-block;
+    font-weight: normal;
+    overflow: hidden;
+    speak: none;
+    text-align: center;
 }
