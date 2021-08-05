@@ -91,3 +91,8 @@ header.page-header {background: #DCEADD;}
     speak: none;
     text-align: center;
 }
+@media only screen and (max-width:768px) {
+    
+    .navigation li.level0.nav-7.last.level-top.parent.ui-menu-item ul.submenu { left: auto !important; min-width: 100px; }
+    .navigation li.level0.nav-7.last.level-top.parent.ui-menu-item ul.submenu li { width:50%; }
+}
